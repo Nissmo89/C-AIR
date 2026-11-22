@@ -1,0 +1,21 @@
+# ninja log v7
+123	1097	8169322377331067	CMakeFiles/cair_ui.dir/src/widgets/editor_pane.c.obj	646c05dabfd8ca70
+96	1160	8169322377145465	CMakeFiles/cair_ui.dir/src/widgets/project_explorer.c.obj	e1499f2ce3949535
+163	1228	8169322377753607	CMakeFiles/cair_ui.dir/src/widgets/status_bar.c.obj	2c100176bc45e7ce
+142	1375	8169322377544175	CMakeFiles/cair_ui.dir/src/widgets/find_replace_bar.c.obj	5356edf78ed0508
+1177	1809	8169322388181933	CMakeFiles/cair.dir/main.c.obj	9d63c474cc57c6a1
+1124	1897	8169322387534289	CMakeFiles/cair_ui.dir/src/search/find_replace.c.obj	711fe9b14f64019a
+41	2656	8169322376514863	CMakeFiles/cair_ui.dir/src/app.c.obj	e288b649386387c5
+74	2724	8169322376910357	CMakeFiles/cair_ui.dir/src/model/project_tree.c.obj	a3adf2f177de54f6
+1850	2918	8169322394824915	CMakeFiles/cair_search_tests.dir/tests/test_find_replace.c.obj	3ae192b2d5a6e431
+2119	2962	8169322398822386	CMakeFiles/cair_search_tests.dir/src/search/find_replace.c.obj	f9881110cddcc1d7
+2939	3375	8169322405536305	CMakeFiles/cair_smoke.dir/main.c.obj	6f473ce2e1916660
+2744	3661	8169322403671984	libcair_ui.a	929b3f260b744e0b
+1279	3776	8169322388998361	CMakeFiles/cair_unit_tests.dir/tests/test_project_tree.c.obj	59a3ae5e0d0b0842
+1431	3788	8169322390405744	CMakeFiles/cair_unit_tests.dir/src/model/project_tree.c.obj	3d78937c0d558dbb
+2971	3821	8169322405890486	cair_search_tests.exe	763fcd1e4a8f637
+3795	4537	8169322414038030	cair_unit_tests.exe	544df23454bb7840
+3672	4790	8169322412956280	bin/cair-20261121-081158-532.exe	e0c87c4f6e241525
+3712	4883	8169322413460723	cair_smoke.exe	80956c4b3a522dac
+2687	4956	8169322403171913	CMakeFiles/cair_widget_tests.dir/tests/test_widgets.c.obj	badff40250df524b
+4957	5691	8169322425767835	cair_widget_tests.exe	61b143d8017ecca0

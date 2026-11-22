@@ -1,0 +1,66 @@
+Start testing: Nov 21 08:14 India Standard Time
+----------------------------------------------------------
+1/4 Testing: unit_project_tree
+1/4 Test: unit_project_tree
+Command: "C:/Users/khali/Code/C-AIR/build/cair_unit_tests.exe"
+Directory: C:/Users/khali/Code/C-AIR/build
+"unit_project_tree" start time: Nov 21 08:14 India Standard Time
+Output:
+----------------------------------------------------------
+project tree unit tests passed
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"unit_project_tree" end time: Nov 21 08:14 India Standard Time
+"unit_project_tree" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: unit_find_replace
+2/4 Test: unit_find_replace
+Command: "C:/Users/khali/Code/C-AIR/build/cair_search_tests.exe"
+Directory: C:/Users/khali/Code/C-AIR/build
+"unit_find_replace" start time: Nov 21 08:14 India Standard Time
+Output:
+----------------------------------------------------------
+find and replace unit tests passed
+<end of output>
+Test time =   0.89 sec
+----------------------------------------------------------
+Test Passed.
+"unit_find_replace" end time: Nov 21 08:14 India Standard Time
+"unit_find_replace" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: integration_widgets
+3/4 Test: integration_widgets
+Command: "C:/Users/khali/Code/C-AIR/build/cair_widget_tests.exe"
+Directory: C:/Users/khali/Code/C-AIR/build
+"integration_widgets" start time: Nov 21 08:14 India Standard Time
+Output:
+----------------------------------------------------------
+widget integration tests passed
+<end of output>
+Test time =   0.64 sec
+----------------------------------------------------------
+Test Passed.
+"integration_widgets" end time: Nov 21 08:14 India Standard Time
+"integration_widgets" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: e2e_app_startup
+4/4 Test: e2e_app_startup
+Command: "C:/Users/khali/Code/C-AIR/build/cair_smoke.exe" "--self-test"
+Directory: C:/Users/khali/Code/C-AIR/build
+"e2e_app_startup" start time: Nov 21 08:14 India Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.79 sec
+----------------------------------------------------------
+Test Passed.
+"e2e_app_startup" end time: Nov 21 08:14 India Standard Time
+"e2e_app_startup" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 21 08:14 India Standard Time

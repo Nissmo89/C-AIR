@@ -1,0 +1,2758 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineSystem.cmake:220 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeNinjaFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Program used to build from build.ninja files."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ninja-build"
+      - "ninja"
+      - "samu"
+    candidate_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/ninja-build.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/ninja-build.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/ninja-build"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/ninja.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/ninja.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/ninja"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/samu.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/samu.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/samu"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/ninja-build.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/ninja-build.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/ninja-build"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/ninja.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/ninja.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/ninja"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/samu.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/samu.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/samu"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/ninja-build.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/ninja-build.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/ninja-build"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/ninja.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/ninja.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/ninja"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/samu.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/samu.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/samu"
+      - "C:/msys64/mingw64/bin/ninja-build.com"
+      - "C:/msys64/mingw64/bin/ninja-build.exe"
+      - "C:/msys64/mingw64/bin/ninja-build"
+      - "C:/msys64/mingw64/bin/ninja.com"
+    found: "C:/msys64/mingw64/bin/ninja.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompiler.cmake:63 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "C compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cc"
+      - "gcc"
+      - "cl"
+      - "bcc"
+      - "xlc"
+      - "icx"
+      - "clang"
+      - "dpclang"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/cc.com"
+    found: "C:/msys64/mingw64/bin/cc.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:541 (find_file)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:583 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "C:/msys64/mingw64/share/cmake/Modules/"
+    found: "C:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/msys64/mingw64/bin/cc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/khali/Code/C-AIR/build/CMakeFiles/4.5.0/CompilerIdC/a.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/ar.com"
+    found: "C:/msys64/mingw64/bin/ar.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/ranlib.com"
+    found: "C:/msys64/mingw64/bin/ranlib.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/strip.com"
+    found: "C:/msys64/mingw64/bin/strip.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/ld.com"
+    found: "C:/msys64/mingw64/bin/ld.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/nm.com"
+    found: "C:/msys64/mingw64/bin/nm.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/objdump.com"
+    found: "C:/msys64/mingw64/bin/objdump.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/objcopy.com"
+    found: "C:/msys64/mingw64/bin/objcopy.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/readelf.com"
+    found: "C:/msys64/mingw64/bin/readelf.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/dlltool.com"
+    found: "C:/msys64/mingw64/bin/dlltool.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/addr2line.com"
+    found: "C:/msys64/mingw64/bin/addr2line.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:249 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/tapi.com"
+      - "C:/msys64/mingw64/bin/tapi.exe"
+      - "C:/msys64/mingw64/bin/tapi"
+      - "C:/Windows/System32/tapi.com"
+      - "C:/Windows/System32/tapi.exe"
+      - "C:/Windows/System32/tapi"
+      - "C:/Windows/tapi.com"
+      - "C:/Windows/tapi.exe"
+      - "C:/Windows/tapi"
+      - "C:/Windows/System32/wbem/tapi.com"
+      - "C:/Windows/System32/wbem/tapi.exe"
+      - "C:/Windows/System32/wbem/tapi"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi"
+      - "C:/Windows/System32/OpenSSH/tapi.com"
+      - "C:/Windows/System32/OpenSSH/tapi.exe"
+      - "C:/Windows/System32/OpenSSH/tapi"
+      - "C:/Program Files/Git/cmd/tapi.com"
+      - "C:/Program Files/Git/cmd/tapi.exe"
+      - "C:/Program Files/Git/cmd/tapi"
+      - "C:/Program Files/Go/bin/tapi.com"
+      - "C:/Program Files/Go/bin/tapi.exe"
+      - "C:/Program Files/Go/bin/tapi"
+      - "C:/Program Files/nodejs/tapi.com"
+      - "C:/Program Files/nodejs/tapi.exe"
+      - "C:/Program Files/nodejs/tapi"
+      - "C:/Program Files/eSpeak NG/tapi.com"
+      - "C:/Program Files/eSpeak NG/tapi.exe"
+      - "C:/Program Files/eSpeak NG/tapi"
+      - "C:/Users/khali/.cargo/bin/tapi.com"
+      - "C:/Users/khali/.cargo/bin/tapi.exe"
+      - "C:/Users/khali/.cargo/bin/tapi"
+      - "C:/Users/khali/AppData/Local/agy/bin/tapi.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/tapi.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/tapi"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/tapi.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/tapi"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/tapi.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/tapi"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/tapi.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/tapi"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/tapi.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/tapi"
+      - "C:/Users/khali/go/bin/tapi.com"
+      - "C:/Users/khali/go/bin/tapi.exe"
+      - "C:/Users/khali/go/bin/tapi"
+      - "C:/Users/khali/go_sdk/go/bin/tapi.com"
+      - "C:/Users/khali/go_sdk/go/bin/tapi.exe"
+      - "C:/Users/khali/go_sdk/go/bin/tapi"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/tapi.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/tapi"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/tapi.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/tapi.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/tapi"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/tapi.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/tapi"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/tapi.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/tapi"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/tapi.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/tapi.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/tapi"
+      - "C:/Users/khali/AppData/Roaming/npm/tapi.com"
+      - "C:/Users/khali/AppData/Roaming/npm/tapi.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/tapi"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:202 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-16.2"
+      - "gcc-ar-16"
+      - "gcc-ar16"
+      - "gcc-ar"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/gcc-ar-16.2.com"
+      - "C:/msys64/mingw64/bin/gcc-ar-16.2.exe"
+      - "C:/msys64/mingw64/bin/gcc-ar-16.2"
+      - "C:/msys64/mingw64/bin/gcc-ar-16.com"
+      - "C:/msys64/mingw64/bin/gcc-ar-16.exe"
+      - "C:/msys64/mingw64/bin/gcc-ar-16"
+      - "C:/msys64/mingw64/bin/gcc-ar16.com"
+      - "C:/msys64/mingw64/bin/gcc-ar16.exe"
+      - "C:/msys64/mingw64/bin/gcc-ar16"
+      - "C:/msys64/mingw64/bin/gcc-ar.com"
+    found: "C:/msys64/mingw64/bin/gcc-ar.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:33 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake:202 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-16.2"
+      - "gcc-ranlib-16"
+      - "gcc-ranlib16"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/gcc-ranlib-16.2.com"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-16.2.exe"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-16.2"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-16.com"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-16.exe"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-16"
+      - "C:/msys64/mingw64/bin/gcc-ranlib16.com"
+      - "C:/msys64/mingw64/bin/gcc-ranlib16.exe"
+      - "C:/msys64/mingw64/bin/gcc-ranlib16"
+      - "C:/msys64/mingw64/bin/gcc-ranlib.com"
+    found: "C:/msys64/mingw64/bin/gcc-ranlib.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake:169 (enable_language)"
+      - "C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake:2 (__windows_compiler_gnu)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "windres"
+      - "windres"
+    candidate_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/msys64/mingw64/sbin/"
+      - "C:/msys64/mingw64/"
+      - "C:/Program Files (x86)/CAIR/bin/"
+      - "C:/Program Files (x86)/CAIR/sbin/"
+      - "C:/Program Files (x86)/CAIR/"
+    searched_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/windres.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/windres.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/windres"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/windres.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/windres.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/windres"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/windres.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/windres.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/windres"
+      - "C:/msys64/mingw64/bin/windres.com"
+    found: "C:/msys64/mingw64/bin/windres.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/CAIR"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/msys64/mingw64"
+        - "C:/Program Files (x86)/CAIR"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/khali/Code/C-AIR/build/CMakeFiles/CMakeScratch/TryCompile-wpmaem"
+      binary: "C:/Users/khali/Code/C-AIR/build/CMakeFiles/CMakeScratch/TryCompile-wpmaem"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'C:/Users/khali/Code/C-AIR/build/CMakeFiles/CMakeScratch/TryCompile-wpmaem'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_0a124
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe   -v -o CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj -c C:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-16.2.0/configure --prefix=/mingw64 --with-sysroot=/mingw64 --with-build-sysroot=D:/M/msys64/mingw64 --with-local-prefix=/local --with-native-system-header-dir=/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-mingw-wildcard --enable-languages=c,c++,ada,fortran,lto,objc,obj-c++,jit --enable-threads=posix --enable-tls --enable-fully-dynamic-string --enable-libstdcxx-time --disable-libstdcxx-pch --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-system-zlib --with-isl --with-pkgversion='Rev7, Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --disable-libstdcxx-debug --enable-plugin
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.2.0 (Rev7, Built by MSYS2 project) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0a124.dir/'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/cc1.exe -quiet -v -iprefix C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/ -isysroot C:/msys64/mingw64/bin/../../mingw64 -D_REENTRANT C:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_0a124.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\khali\\AppData\\Local\\Temp\\ccvR3foe.s
+        GNU C23 (Rev7, Built by MSYS2 project) version 16.2.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 16.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version isl-0.28-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include"
+        ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include"
+        ignoring nonexistent directory "C:/msys64/mingw64/bin/../../mingw64/local/include"
+        ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed"
+        ignoring nonexistent directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed
+         C:/msys64/mingw64/bin/../../mingw64/include
+        End of search list.
+        Compiler executable checksum: d00cebd58bfc4669a25f83231678ea85
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0a124.dir/'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj C:\\Users\\khali\\AppData\\Local\\Temp\\ccvR3foe.s
+        GNU assembler version 2.47 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.47.20260726
+        COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/;C:/msys64/mingw64/bin/../../mingw64/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../;C:/msys64/mingw64/bin/../../mingw64/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.'
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe  -v -Wl,-v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj -o cmTC_0a124.exe -Wl,--out-implib,libcmTC_0a124.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        Using built-in specs.
+        COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe
+        COLLECT_LTO_WRAPPER=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-16.2.0/configure --prefix=/mingw64 --with-sysroot=/mingw64 --with-build-sysroot=D:/M/msys64/mingw64 --with-local-prefix=/local --with-native-system-header-dir=/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-mingw-wildcard --enable-languages=c,c++,ada,fortran,lto,objc,obj-c++,jit --enable-threads=posix --enable-tls --enable-fully-dynamic-string --enable-libstdcxx-time --disable-libstdcxx-pch --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-system-zlib --with-isl --with-pkgversion='Rev7, Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --disable-libstdcxx-debug --enable-plugin
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.2.0 (Rev7, Built by MSYS2 project) 
+        COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/;C:/msys64/mingw64/bin/../../mingw64/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../;C:/msys64/mingw64/bin/../../mingw64/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0a124.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_0a124.'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic -o cmTC_0a124.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_0a124.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+        collect2 version 16.2.0
+        C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic -o cmTC_0a124.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_0a124.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+        GNU ld (GNU Binutils) 2.47.20260726
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0a124.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_0a124.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (message)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include]
+          add: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed]
+          add: [C:/msys64/mingw64/bin/../../mingw64/include]
+        end of search list found
+        collapse include dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include]
+        collapse include dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed]
+        collapse include dir [C:/msys64/mingw64/bin/../../mingw64/include] ==> [C:/msys64/mingw64/include]
+        implicit include dirs: [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include;C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed;C:/msys64/mingw64/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:291 (message)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)(\\.exe)?"?( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/khali/Code/C-AIR/build/CMakeFiles/CMakeScratch/TryCompile-wpmaem']
+        ignore line: []
+        ignore line: [Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_0a124]
+        ignore line: [[1/2] C:\\msys64\\mingw64\\bin\\cc.exe   -v -o CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj -c C:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-16.2.0/configure --prefix=/mingw64 --with-sysroot=/mingw64 --with-build-sysroot=D:/M/msys64/mingw64 --with-local-prefix=/local --with-native-system-header-dir=/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-mingw-wildcard --enable-languages=c c++ ada fortran lto objc obj-c++ jit --enable-threads=posix --enable-tls --enable-fully-dynamic-string --enable-libstdcxx-time --disable-libstdcxx-pch --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-system-zlib --with-isl --with-pkgversion='Rev7  Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --disable-libstdcxx-debug --enable-plugin]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.2.0 (Rev7  Built by MSYS2 project) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0a124.dir/']
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/cc1.exe -quiet -v -iprefix C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/ -isysroot C:/msys64/mingw64/bin/../../mingw64 -D_REENTRANT C:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_0a124.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\khali\\AppData\\Local\\Temp\\ccvR3foe.s]
+        ignore line: [GNU C23 (Rev7  Built by MSYS2 project) version 16.2.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 16.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version isl-0.28-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include"]
+        ignore line: [ignoring nonexistent directory "C:/msys64/mingw64/bin/../../mingw64/local/include"]
+        ignore line: [ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed"]
+        ignore line: [ignoring nonexistent directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include]
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed]
+        ignore line: [ C:/msys64/mingw64/bin/../../mingw64/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: d00cebd58bfc4669a25f83231678ea85]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0a124.dir/']
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj C:\\Users\\khali\\AppData\\Local\\Temp\\ccvR3foe.s]
+        ignore line: [GNU assembler version 2.47 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.47.20260726]
+        ignore line: [COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../../mingw64/lib/../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../]
+        ignore line: [C:/msys64/mingw64/bin/../../mingw64/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.']
+        ignore line: [[2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe  -v -Wl -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj -o cmTC_0a124.exe -Wl --out-implib libcmTC_0a124.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-16.2.0/configure --prefix=/mingw64 --with-sysroot=/mingw64 --with-build-sysroot=D:/M/msys64/mingw64 --with-local-prefix=/local --with-native-system-header-dir=/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-mingw-wildcard --enable-languages=c c++ ada fortran lto objc obj-c++ jit --enable-threads=posix --enable-tls --enable-fully-dynamic-string --enable-libstdcxx-time --disable-libstdcxx-pch --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-system-zlib --with-isl --with-pkgversion='Rev7  Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --disable-libstdcxx-debug --enable-plugin]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.2.0 (Rev7  Built by MSYS2 project) ]
+        ignore line: [COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../../mingw64/lib/../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../]
+        ignore line: [C:/msys64/mingw64/bin/../../mingw64/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0a124.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_0a124.']
+        link line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic -o cmTC_0a124.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_0a124.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe] ==> ignore
+          arg [-plugin] ==> ignore, skip following value
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll] ==> skip value of -plugin
+          arg [-plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+          arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [--sysroot=C:/msys64/mingw64/bin/../../mingw64] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore, skip following value
+          arg [cmTC_0a124.exe] ==> skip value of -o
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc] ==> dir [C:/msys64/mingw64/bin/../lib/gcc]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib]
+          arg [-LC:/msys64/mingw64/bin/../../mingw64/lib/../lib] ==> dir [C:/msys64/mingw64/bin/../../mingw64/lib/../lib]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../..] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../..]
+          arg [-LC:/msys64/mingw64/bin/../../mingw64/lib] ==> dir [C:/msys64/mingw64/bin/../../mingw64/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_0a124.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_eh] ==> lib [gcc_eh]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_eh] ==> lib [gcc_eh]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        ignore line: [collect2 version 16.2.0]
+        link line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic -o cmTC_0a124.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_0a124.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> linker [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe]
+        link line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic -o cmTC_0a124.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_0a124.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> linker architecture flags [-m;i386pep]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\khali\\AppData\\Local\\Temp\\ccOqbyYu.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/msys64/mingw64/bin/../../mingw64 -m i386pep -Bdynamic -o cmTC_0a124.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/msys64/mingw64/bin/../../mingw64/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -LC:/msys64/mingw64/bin/../../mingw64/lib -v CMakeFiles/cmTC_0a124.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_0a124.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        linker tool for 'C': C:/msys64/mingw64/x86_64-w64-mingw32/bin/ld.exe -m;i386pep
+        remove lib [gcc_eh]
+        remove lib [msvcrt]
+        remove lib [gcc_eh]
+        remove lib [msvcrt]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/crt2.o] ==> [C:/msys64/mingw64/lib/crt2.o]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/default-manifest.o] ==> [C:/msys64/mingw64/lib/default-manifest.o]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc] ==> [C:/msys64/mingw64/lib/gcc]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/msys64/mingw64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib] ==> [C:/msys64/mingw64/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../../mingw64/lib/../lib] ==> [C:/msys64/mingw64/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/msys64/mingw64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../..] ==> [C:/msys64/mingw64/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../../mingw64/lib] ==> [C:/msys64/mingw64/lib]
+        implicit libs: [mingw32;gcc;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;mingwex;kernel32]
+        implicit objs: [C:/msys64/mingw64/lib/crt2.o;C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o;C:/msys64/mingw64/lib/default-manifest.o;C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        implicit dirs: [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0;C:/msys64/mingw64/lib/gcc;C:/msys64/mingw64/x86_64-w64-mingw32/lib;C:/msys64/mingw64/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/msys64/mingw64/x86_64-w64-mingw32/bin/ld.exe" "-v"
+      GNU ld (GNU Binutils) 2.47.20260726
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:18 (find_package)"
+    name: "raven"
+    configs:
+      -
+        filename: "raven.cps"
+        kind: "cps"
+      -
+        filename: "ravenConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "raven-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "raven"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "C:/Users/khali/Code/C-AIR/build/CMakeFiles/pkgRedirects/ravenConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/build/CMakeFiles/pkgRedirects/raven-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/build/CMakeFiles/pkgRedirects/lib/cps/raven.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/build/CMakeFiles/pkgRedirects/share/cps/raven.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/Raven/install/ravenConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/Raven/install/raven-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/Raven/install/lib/cps/raven.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/khali/Code/C-AIR/Raven/install/share/cps/raven.cps"
+        mode: "cps"
+        reason: "no_exist"
+    found:
+      path: "C:/Users/khali/Code/C-AIR/Raven/install/lib/cmake/raven/ravenConfig.cmake"
+      mode: "config"
+      version: "0.2.3"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/CAIR"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/msys64/mingw64"
+        - "C:/Program Files (x86)/CAIR"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CTest.cmake:188 (find_program)"
+      - "CMakeLists.txt:49 (include)"
+    mode: "program"
+    variable: "MEMORYCHECK_COMMAND"
+    description: "Path to the memory checking command, used for memory error detection."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "purify"
+      - "valgrind"
+      - "boundscheck"
+      - "drmemory"
+      - "cuda-memcheck"
+      - "compute-sanitizer"
+    candidate_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/msys64/mingw64/sbin/"
+      - "C:/msys64/mingw64/"
+      - "C:/Program Files (x86)/CAIR/bin/"
+      - "C:/Program Files (x86)/CAIR/sbin/"
+      - "C:/Program Files (x86)/CAIR/"
+      - "/REGISTRY-NOTFOUND/"
+    searched_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/purify.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/purify.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/purify"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/purify.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/purify.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/purify"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/purify.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/purify.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/purify"
+      - "C:/msys64/mingw64/bin/purify.com"
+      - "C:/msys64/mingw64/bin/purify.exe"
+      - "C:/msys64/mingw64/bin/purify"
+      - "C:/Windows/System32/purify.com"
+      - "C:/Windows/System32/purify.exe"
+      - "C:/Windows/System32/purify"
+      - "C:/Windows/purify.com"
+      - "C:/Windows/purify.exe"
+      - "C:/Windows/purify"
+      - "C:/Windows/System32/wbem/purify.com"
+      - "C:/Windows/System32/wbem/purify.exe"
+      - "C:/Windows/System32/wbem/purify"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/purify.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/purify.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/purify"
+      - "C:/Windows/System32/OpenSSH/purify.com"
+      - "C:/Windows/System32/OpenSSH/purify.exe"
+      - "C:/Windows/System32/OpenSSH/purify"
+      - "C:/Program Files/Git/cmd/purify.com"
+      - "C:/Program Files/Git/cmd/purify.exe"
+      - "C:/Program Files/Git/cmd/purify"
+      - "C:/Program Files/Go/bin/purify.com"
+      - "C:/Program Files/Go/bin/purify.exe"
+      - "C:/Program Files/Go/bin/purify"
+      - "C:/Program Files/nodejs/purify.com"
+      - "C:/Program Files/nodejs/purify.exe"
+      - "C:/Program Files/nodejs/purify"
+      - "C:/Program Files/eSpeak NG/purify.com"
+      - "C:/Program Files/eSpeak NG/purify.exe"
+      - "C:/Program Files/eSpeak NG/purify"
+      - "C:/Users/khali/.cargo/bin/purify.com"
+      - "C:/Users/khali/.cargo/bin/purify.exe"
+      - "C:/Users/khali/.cargo/bin/purify"
+      - "C:/Users/khali/AppData/Local/agy/bin/purify.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/purify.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/purify"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/purify.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/purify.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/purify"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/purify.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/purify.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/purify"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/purify.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/purify.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/purify"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/purify.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/purify.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/purify"
+      - "C:/Users/khali/go/bin/purify.com"
+      - "C:/Users/khali/go/bin/purify.exe"
+      - "C:/Users/khali/go/bin/purify"
+      - "C:/Users/khali/go_sdk/go/bin/purify.com"
+      - "C:/Users/khali/go_sdk/go/bin/purify.exe"
+      - "C:/Users/khali/go_sdk/go/bin/purify"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/purify.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/purify.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/purify"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/purify.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/purify.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/purify"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/purify.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/purify.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/purify"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/purify.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/purify.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/purify"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/purify.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/purify.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/purify"
+      - "C:/Users/khali/AppData/Roaming/npm/purify.com"
+      - "C:/Users/khali/AppData/Roaming/npm/purify.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/purify"
+      - "C:/Program Files/bin/purify.com"
+      - "C:/Program Files/bin/purify.exe"
+      - "C:/Program Files/bin/purify"
+      - "C:/Program Files/sbin/purify.com"
+      - "C:/Program Files/sbin/purify.exe"
+      - "C:/Program Files/sbin/purify"
+      - "C:/Program Files/purify.com"
+      - "C:/Program Files/purify.exe"
+      - "C:/Program Files/purify"
+      - "C:/Program Files (x86)/bin/purify.com"
+      - "C:/Program Files (x86)/bin/purify.exe"
+      - "C:/Program Files (x86)/bin/purify"
+      - "C:/Program Files (x86)/sbin/purify.com"
+      - "C:/Program Files (x86)/sbin/purify.exe"
+      - "C:/Program Files (x86)/sbin/purify"
+      - "C:/Program Files (x86)/purify.com"
+      - "C:/Program Files (x86)/purify.exe"
+      - "C:/Program Files (x86)/purify"
+      - "C:/msys64/mingw64/bin/purify.com"
+      - "C:/msys64/mingw64/bin/purify.exe"
+      - "C:/msys64/mingw64/bin/purify"
+      - "C:/msys64/mingw64/sbin/purify.com"
+      - "C:/msys64/mingw64/sbin/purify.exe"
+      - "C:/msys64/mingw64/sbin/purify"
+      - "C:/msys64/mingw64/purify.com"
+      - "C:/msys64/mingw64/purify.exe"
+      - "C:/msys64/mingw64/purify"
+      - "C:/Program Files (x86)/CAIR/bin/purify.com"
+      - "C:/Program Files (x86)/CAIR/bin/purify.exe"
+      - "C:/Program Files (x86)/CAIR/bin/purify"
+      - "C:/Program Files (x86)/CAIR/sbin/purify.com"
+      - "C:/Program Files (x86)/CAIR/sbin/purify.exe"
+      - "C:/Program Files (x86)/CAIR/sbin/purify"
+      - "C:/Program Files (x86)/CAIR/purify.com"
+      - "C:/Program Files (x86)/CAIR/purify.exe"
+      - "C:/Program Files (x86)/CAIR/purify"
+      - "/REGISTRY-NOTFOUND/purify.com"
+      - "/REGISTRY-NOTFOUND/purify.exe"
+      - "/REGISTRY-NOTFOUND/purify"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/valgrind.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/valgrind.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/valgrind"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/valgrind.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/valgrind.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/valgrind"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/valgrind.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/valgrind.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/valgrind"
+      - "C:/msys64/mingw64/bin/valgrind.com"
+      - "C:/msys64/mingw64/bin/valgrind.exe"
+      - "C:/msys64/mingw64/bin/valgrind"
+      - "C:/Windows/System32/valgrind.com"
+      - "C:/Windows/System32/valgrind.exe"
+      - "C:/Windows/System32/valgrind"
+      - "C:/Windows/valgrind.com"
+      - "C:/Windows/valgrind.exe"
+      - "C:/Windows/valgrind"
+      - "C:/Windows/System32/wbem/valgrind.com"
+      - "C:/Windows/System32/wbem/valgrind.exe"
+      - "C:/Windows/System32/wbem/valgrind"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/valgrind.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/valgrind.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/valgrind"
+      - "C:/Windows/System32/OpenSSH/valgrind.com"
+      - "C:/Windows/System32/OpenSSH/valgrind.exe"
+      - "C:/Windows/System32/OpenSSH/valgrind"
+      - "C:/Program Files/Git/cmd/valgrind.com"
+      - "C:/Program Files/Git/cmd/valgrind.exe"
+      - "C:/Program Files/Git/cmd/valgrind"
+      - "C:/Program Files/Go/bin/valgrind.com"
+      - "C:/Program Files/Go/bin/valgrind.exe"
+      - "C:/Program Files/Go/bin/valgrind"
+      - "C:/Program Files/nodejs/valgrind.com"
+      - "C:/Program Files/nodejs/valgrind.exe"
+      - "C:/Program Files/nodejs/valgrind"
+      - "C:/Program Files/eSpeak NG/valgrind.com"
+      - "C:/Program Files/eSpeak NG/valgrind.exe"
+      - "C:/Program Files/eSpeak NG/valgrind"
+      - "C:/Users/khali/.cargo/bin/valgrind.com"
+      - "C:/Users/khali/.cargo/bin/valgrind.exe"
+      - "C:/Users/khali/.cargo/bin/valgrind"
+      - "C:/Users/khali/AppData/Local/agy/bin/valgrind.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/valgrind"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/valgrind"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/valgrind"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/valgrind"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/valgrind"
+      - "C:/Users/khali/go/bin/valgrind.com"
+      - "C:/Users/khali/go/bin/valgrind.exe"
+      - "C:/Users/khali/go/bin/valgrind"
+      - "C:/Users/khali/go_sdk/go/bin/valgrind.com"
+      - "C:/Users/khali/go_sdk/go/bin/valgrind.exe"
+      - "C:/Users/khali/go_sdk/go/bin/valgrind"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/valgrind"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/valgrind.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/valgrind"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/valgrind"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/valgrind"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/valgrind.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/valgrind.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/valgrind"
+      - "C:/Users/khali/AppData/Roaming/npm/valgrind.com"
+      - "C:/Users/khali/AppData/Roaming/npm/valgrind.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/valgrind"
+      - "C:/Program Files/bin/valgrind.com"
+      - "C:/Program Files/bin/valgrind.exe"
+      - "C:/Program Files/bin/valgrind"
+      - "C:/Program Files/sbin/valgrind.com"
+      - "C:/Program Files/sbin/valgrind.exe"
+      - "C:/Program Files/sbin/valgrind"
+      - "C:/Program Files/valgrind.com"
+      - "C:/Program Files/valgrind.exe"
+      - "C:/Program Files/valgrind"
+      - "C:/Program Files (x86)/bin/valgrind.com"
+      - "C:/Program Files (x86)/bin/valgrind.exe"
+      - "C:/Program Files (x86)/bin/valgrind"
+      - "C:/Program Files (x86)/sbin/valgrind.com"
+      - "C:/Program Files (x86)/sbin/valgrind.exe"
+      - "C:/Program Files (x86)/sbin/valgrind"
+      - "C:/Program Files (x86)/valgrind.com"
+      - "C:/Program Files (x86)/valgrind.exe"
+      - "C:/Program Files (x86)/valgrind"
+      - "C:/msys64/mingw64/bin/valgrind.com"
+      - "C:/msys64/mingw64/bin/valgrind.exe"
+      - "C:/msys64/mingw64/bin/valgrind"
+      - "C:/msys64/mingw64/sbin/valgrind.com"
+      - "C:/msys64/mingw64/sbin/valgrind.exe"
+      - "C:/msys64/mingw64/sbin/valgrind"
+      - "C:/msys64/mingw64/valgrind.com"
+      - "C:/msys64/mingw64/valgrind.exe"
+      - "C:/msys64/mingw64/valgrind"
+      - "C:/Program Files (x86)/CAIR/bin/valgrind.com"
+      - "C:/Program Files (x86)/CAIR/bin/valgrind.exe"
+      - "C:/Program Files (x86)/CAIR/bin/valgrind"
+      - "C:/Program Files (x86)/CAIR/sbin/valgrind.com"
+      - "C:/Program Files (x86)/CAIR/sbin/valgrind.exe"
+      - "C:/Program Files (x86)/CAIR/sbin/valgrind"
+      - "C:/Program Files (x86)/CAIR/valgrind.com"
+      - "C:/Program Files (x86)/CAIR/valgrind.exe"
+      - "C:/Program Files (x86)/CAIR/valgrind"
+      - "/REGISTRY-NOTFOUND/valgrind.com"
+      - "/REGISTRY-NOTFOUND/valgrind.exe"
+      - "/REGISTRY-NOTFOUND/valgrind"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/boundscheck.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/boundscheck.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/boundscheck"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/boundscheck.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/boundscheck.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/boundscheck"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/boundscheck.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/boundscheck.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/boundscheck"
+      - "C:/msys64/mingw64/bin/boundscheck.com"
+      - "C:/msys64/mingw64/bin/boundscheck.exe"
+      - "C:/msys64/mingw64/bin/boundscheck"
+      - "C:/Windows/System32/boundscheck.com"
+      - "C:/Windows/System32/boundscheck.exe"
+      - "C:/Windows/System32/boundscheck"
+      - "C:/Windows/boundscheck.com"
+      - "C:/Windows/boundscheck.exe"
+      - "C:/Windows/boundscheck"
+      - "C:/Windows/System32/wbem/boundscheck.com"
+      - "C:/Windows/System32/wbem/boundscheck.exe"
+      - "C:/Windows/System32/wbem/boundscheck"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/boundscheck.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/boundscheck.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/boundscheck"
+      - "C:/Windows/System32/OpenSSH/boundscheck.com"
+      - "C:/Windows/System32/OpenSSH/boundscheck.exe"
+      - "C:/Windows/System32/OpenSSH/boundscheck"
+      - "C:/Program Files/Git/cmd/boundscheck.com"
+      - "C:/Program Files/Git/cmd/boundscheck.exe"
+      - "C:/Program Files/Git/cmd/boundscheck"
+      - "C:/Program Files/Go/bin/boundscheck.com"
+      - "C:/Program Files/Go/bin/boundscheck.exe"
+      - "C:/Program Files/Go/bin/boundscheck"
+      - "C:/Program Files/nodejs/boundscheck.com"
+      - "C:/Program Files/nodejs/boundscheck.exe"
+      - "C:/Program Files/nodejs/boundscheck"
+      - "C:/Program Files/eSpeak NG/boundscheck.com"
+      - "C:/Program Files/eSpeak NG/boundscheck.exe"
+      - "C:/Program Files/eSpeak NG/boundscheck"
+      - "C:/Users/khali/.cargo/bin/boundscheck.com"
+      - "C:/Users/khali/.cargo/bin/boundscheck.exe"
+      - "C:/Users/khali/.cargo/bin/boundscheck"
+      - "C:/Users/khali/AppData/Local/agy/bin/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/boundscheck"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/boundscheck"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/boundscheck"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/boundscheck"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/boundscheck"
+      - "C:/Users/khali/go/bin/boundscheck.com"
+      - "C:/Users/khali/go/bin/boundscheck.exe"
+      - "C:/Users/khali/go/bin/boundscheck"
+      - "C:/Users/khali/go_sdk/go/bin/boundscheck.com"
+      - "C:/Users/khali/go_sdk/go/bin/boundscheck.exe"
+      - "C:/Users/khali/go_sdk/go/bin/boundscheck"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/boundscheck"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/boundscheck"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/boundscheck"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/boundscheck"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/boundscheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/boundscheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/boundscheck"
+      - "C:/Users/khali/AppData/Roaming/npm/boundscheck.com"
+      - "C:/Users/khali/AppData/Roaming/npm/boundscheck.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/boundscheck"
+      - "C:/Program Files/bin/boundscheck.com"
+      - "C:/Program Files/bin/boundscheck.exe"
+      - "C:/Program Files/bin/boundscheck"
+      - "C:/Program Files/sbin/boundscheck.com"
+      - "C:/Program Files/sbin/boundscheck.exe"
+      - "C:/Program Files/sbin/boundscheck"
+      - "C:/Program Files/boundscheck.com"
+      - "C:/Program Files/boundscheck.exe"
+      - "C:/Program Files/boundscheck"
+      - "C:/Program Files (x86)/bin/boundscheck.com"
+      - "C:/Program Files (x86)/bin/boundscheck.exe"
+      - "C:/Program Files (x86)/bin/boundscheck"
+      - "C:/Program Files (x86)/sbin/boundscheck.com"
+      - "C:/Program Files (x86)/sbin/boundscheck.exe"
+      - "C:/Program Files (x86)/sbin/boundscheck"
+      - "C:/Program Files (x86)/boundscheck.com"
+      - "C:/Program Files (x86)/boundscheck.exe"
+      - "C:/Program Files (x86)/boundscheck"
+      - "C:/msys64/mingw64/bin/boundscheck.com"
+      - "C:/msys64/mingw64/bin/boundscheck.exe"
+      - "C:/msys64/mingw64/bin/boundscheck"
+      - "C:/msys64/mingw64/sbin/boundscheck.com"
+      - "C:/msys64/mingw64/sbin/boundscheck.exe"
+      - "C:/msys64/mingw64/sbin/boundscheck"
+      - "C:/msys64/mingw64/boundscheck.com"
+      - "C:/msys64/mingw64/boundscheck.exe"
+      - "C:/msys64/mingw64/boundscheck"
+      - "C:/Program Files (x86)/CAIR/bin/boundscheck.com"
+      - "C:/Program Files (x86)/CAIR/bin/boundscheck.exe"
+      - "C:/Program Files (x86)/CAIR/bin/boundscheck"
+      - "C:/Program Files (x86)/CAIR/sbin/boundscheck.com"
+      - "C:/Program Files (x86)/CAIR/sbin/boundscheck.exe"
+      - "C:/Program Files (x86)/CAIR/sbin/boundscheck"
+      - "C:/Program Files (x86)/CAIR/boundscheck.com"
+      - "C:/Program Files (x86)/CAIR/boundscheck.exe"
+      - "C:/Program Files (x86)/CAIR/boundscheck"
+      - "/REGISTRY-NOTFOUND/boundscheck.com"
+      - "/REGISTRY-NOTFOUND/boundscheck.exe"
+      - "/REGISTRY-NOTFOUND/boundscheck"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/drmemory.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/drmemory.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/drmemory"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/drmemory.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/drmemory.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/drmemory"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/drmemory.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/drmemory.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/drmemory"
+      - "C:/msys64/mingw64/bin/drmemory.com"
+      - "C:/msys64/mingw64/bin/drmemory.exe"
+      - "C:/msys64/mingw64/bin/drmemory"
+      - "C:/Windows/System32/drmemory.com"
+      - "C:/Windows/System32/drmemory.exe"
+      - "C:/Windows/System32/drmemory"
+      - "C:/Windows/drmemory.com"
+      - "C:/Windows/drmemory.exe"
+      - "C:/Windows/drmemory"
+      - "C:/Windows/System32/wbem/drmemory.com"
+      - "C:/Windows/System32/wbem/drmemory.exe"
+      - "C:/Windows/System32/wbem/drmemory"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/drmemory.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/drmemory.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/drmemory"
+      - "C:/Windows/System32/OpenSSH/drmemory.com"
+      - "C:/Windows/System32/OpenSSH/drmemory.exe"
+      - "C:/Windows/System32/OpenSSH/drmemory"
+      - "C:/Program Files/Git/cmd/drmemory.com"
+      - "C:/Program Files/Git/cmd/drmemory.exe"
+      - "C:/Program Files/Git/cmd/drmemory"
+      - "C:/Program Files/Go/bin/drmemory.com"
+      - "C:/Program Files/Go/bin/drmemory.exe"
+      - "C:/Program Files/Go/bin/drmemory"
+      - "C:/Program Files/nodejs/drmemory.com"
+      - "C:/Program Files/nodejs/drmemory.exe"
+      - "C:/Program Files/nodejs/drmemory"
+      - "C:/Program Files/eSpeak NG/drmemory.com"
+      - "C:/Program Files/eSpeak NG/drmemory.exe"
+      - "C:/Program Files/eSpeak NG/drmemory"
+      - "C:/Users/khali/.cargo/bin/drmemory.com"
+      - "C:/Users/khali/.cargo/bin/drmemory.exe"
+      - "C:/Users/khali/.cargo/bin/drmemory"
+      - "C:/Users/khali/AppData/Local/agy/bin/drmemory.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/drmemory"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/drmemory"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/drmemory"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/drmemory"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/drmemory"
+      - "C:/Users/khali/go/bin/drmemory.com"
+      - "C:/Users/khali/go/bin/drmemory.exe"
+      - "C:/Users/khali/go/bin/drmemory"
+      - "C:/Users/khali/go_sdk/go/bin/drmemory.com"
+      - "C:/Users/khali/go_sdk/go/bin/drmemory.exe"
+      - "C:/Users/khali/go_sdk/go/bin/drmemory"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/drmemory"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/drmemory.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/drmemory"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/drmemory"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/drmemory"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/drmemory.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/drmemory.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/drmemory"
+      - "C:/Users/khali/AppData/Roaming/npm/drmemory.com"
+      - "C:/Users/khali/AppData/Roaming/npm/drmemory.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/drmemory"
+      - "C:/Program Files/bin/drmemory.com"
+      - "C:/Program Files/bin/drmemory.exe"
+      - "C:/Program Files/bin/drmemory"
+      - "C:/Program Files/sbin/drmemory.com"
+      - "C:/Program Files/sbin/drmemory.exe"
+      - "C:/Program Files/sbin/drmemory"
+      - "C:/Program Files/drmemory.com"
+      - "C:/Program Files/drmemory.exe"
+      - "C:/Program Files/drmemory"
+      - "C:/Program Files (x86)/bin/drmemory.com"
+      - "C:/Program Files (x86)/bin/drmemory.exe"
+      - "C:/Program Files (x86)/bin/drmemory"
+      - "C:/Program Files (x86)/sbin/drmemory.com"
+      - "C:/Program Files (x86)/sbin/drmemory.exe"
+      - "C:/Program Files (x86)/sbin/drmemory"
+      - "C:/Program Files (x86)/drmemory.com"
+      - "C:/Program Files (x86)/drmemory.exe"
+      - "C:/Program Files (x86)/drmemory"
+      - "C:/msys64/mingw64/bin/drmemory.com"
+      - "C:/msys64/mingw64/bin/drmemory.exe"
+      - "C:/msys64/mingw64/bin/drmemory"
+      - "C:/msys64/mingw64/sbin/drmemory.com"
+      - "C:/msys64/mingw64/sbin/drmemory.exe"
+      - "C:/msys64/mingw64/sbin/drmemory"
+      - "C:/msys64/mingw64/drmemory.com"
+      - "C:/msys64/mingw64/drmemory.exe"
+      - "C:/msys64/mingw64/drmemory"
+      - "C:/Program Files (x86)/CAIR/bin/drmemory.com"
+      - "C:/Program Files (x86)/CAIR/bin/drmemory.exe"
+      - "C:/Program Files (x86)/CAIR/bin/drmemory"
+      - "C:/Program Files (x86)/CAIR/sbin/drmemory.com"
+      - "C:/Program Files (x86)/CAIR/sbin/drmemory.exe"
+      - "C:/Program Files (x86)/CAIR/sbin/drmemory"
+      - "C:/Program Files (x86)/CAIR/drmemory.com"
+      - "C:/Program Files (x86)/CAIR/drmemory.exe"
+      - "C:/Program Files (x86)/CAIR/drmemory"
+      - "/REGISTRY-NOTFOUND/drmemory.com"
+      - "/REGISTRY-NOTFOUND/drmemory.exe"
+      - "/REGISTRY-NOTFOUND/drmemory"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/cuda-memcheck.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/cuda-memcheck"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/cuda-memcheck.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/cuda-memcheck.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/cuda-memcheck"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/cuda-memcheck.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/cuda-memcheck.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/cuda-memcheck"
+      - "C:/msys64/mingw64/bin/cuda-memcheck.com"
+      - "C:/msys64/mingw64/bin/cuda-memcheck.exe"
+      - "C:/msys64/mingw64/bin/cuda-memcheck"
+      - "C:/Windows/System32/cuda-memcheck.com"
+      - "C:/Windows/System32/cuda-memcheck.exe"
+      - "C:/Windows/System32/cuda-memcheck"
+      - "C:/Windows/cuda-memcheck.com"
+      - "C:/Windows/cuda-memcheck.exe"
+      - "C:/Windows/cuda-memcheck"
+      - "C:/Windows/System32/wbem/cuda-memcheck.com"
+      - "C:/Windows/System32/wbem/cuda-memcheck.exe"
+      - "C:/Windows/System32/wbem/cuda-memcheck"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cuda-memcheck.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cuda-memcheck.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cuda-memcheck"
+      - "C:/Windows/System32/OpenSSH/cuda-memcheck.com"
+      - "C:/Windows/System32/OpenSSH/cuda-memcheck.exe"
+      - "C:/Windows/System32/OpenSSH/cuda-memcheck"
+      - "C:/Program Files/Git/cmd/cuda-memcheck.com"
+      - "C:/Program Files/Git/cmd/cuda-memcheck.exe"
+      - "C:/Program Files/Git/cmd/cuda-memcheck"
+      - "C:/Program Files/Go/bin/cuda-memcheck.com"
+      - "C:/Program Files/Go/bin/cuda-memcheck.exe"
+      - "C:/Program Files/Go/bin/cuda-memcheck"
+      - "C:/Program Files/nodejs/cuda-memcheck.com"
+      - "C:/Program Files/nodejs/cuda-memcheck.exe"
+      - "C:/Program Files/nodejs/cuda-memcheck"
+      - "C:/Program Files/eSpeak NG/cuda-memcheck.com"
+      - "C:/Program Files/eSpeak NG/cuda-memcheck.exe"
+      - "C:/Program Files/eSpeak NG/cuda-memcheck"
+      - "C:/Users/khali/.cargo/bin/cuda-memcheck.com"
+      - "C:/Users/khali/.cargo/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/.cargo/bin/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/agy/bin/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/cuda-memcheck"
+      - "C:/Users/khali/go/bin/cuda-memcheck.com"
+      - "C:/Users/khali/go/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/go/bin/cuda-memcheck"
+      - "C:/Users/khali/go_sdk/go/bin/cuda-memcheck.com"
+      - "C:/Users/khali/go_sdk/go/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/go_sdk/go/bin/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/cuda-memcheck"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/cuda-memcheck"
+      - "C:/Users/khali/AppData/Roaming/npm/cuda-memcheck.com"
+      - "C:/Users/khali/AppData/Roaming/npm/cuda-memcheck.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/cuda-memcheck"
+      - "C:/Program Files/bin/cuda-memcheck.com"
+      - "C:/Program Files/bin/cuda-memcheck.exe"
+      - "C:/Program Files/bin/cuda-memcheck"
+      - "C:/Program Files/sbin/cuda-memcheck.com"
+      - "C:/Program Files/sbin/cuda-memcheck.exe"
+      - "C:/Program Files/sbin/cuda-memcheck"
+      - "C:/Program Files/cuda-memcheck.com"
+      - "C:/Program Files/cuda-memcheck.exe"
+      - "C:/Program Files/cuda-memcheck"
+      - "C:/Program Files (x86)/bin/cuda-memcheck.com"
+      - "C:/Program Files (x86)/bin/cuda-memcheck.exe"
+      - "C:/Program Files (x86)/bin/cuda-memcheck"
+      - "C:/Program Files (x86)/sbin/cuda-memcheck.com"
+      - "C:/Program Files (x86)/sbin/cuda-memcheck.exe"
+      - "C:/Program Files (x86)/sbin/cuda-memcheck"
+      - "C:/Program Files (x86)/cuda-memcheck.com"
+      - "C:/Program Files (x86)/cuda-memcheck.exe"
+      - "C:/Program Files (x86)/cuda-memcheck"
+      - "C:/msys64/mingw64/bin/cuda-memcheck.com"
+      - "C:/msys64/mingw64/bin/cuda-memcheck.exe"
+      - "C:/msys64/mingw64/bin/cuda-memcheck"
+      - "C:/msys64/mingw64/sbin/cuda-memcheck.com"
+      - "C:/msys64/mingw64/sbin/cuda-memcheck.exe"
+      - "C:/msys64/mingw64/sbin/cuda-memcheck"
+      - "C:/msys64/mingw64/cuda-memcheck.com"
+      - "C:/msys64/mingw64/cuda-memcheck.exe"
+      - "C:/msys64/mingw64/cuda-memcheck"
+      - "C:/Program Files (x86)/CAIR/bin/cuda-memcheck.com"
+      - "C:/Program Files (x86)/CAIR/bin/cuda-memcheck.exe"
+      - "C:/Program Files (x86)/CAIR/bin/cuda-memcheck"
+      - "C:/Program Files (x86)/CAIR/sbin/cuda-memcheck.com"
+      - "C:/Program Files (x86)/CAIR/sbin/cuda-memcheck.exe"
+      - "C:/Program Files (x86)/CAIR/sbin/cuda-memcheck"
+      - "C:/Program Files (x86)/CAIR/cuda-memcheck.com"
+      - "C:/Program Files (x86)/CAIR/cuda-memcheck.exe"
+      - "C:/Program Files (x86)/CAIR/cuda-memcheck"
+      - "/REGISTRY-NOTFOUND/cuda-memcheck.com"
+      - "/REGISTRY-NOTFOUND/cuda-memcheck.exe"
+      - "/REGISTRY-NOTFOUND/cuda-memcheck"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/compute-sanitizer.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/compute-sanitizer"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/compute-sanitizer.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/compute-sanitizer.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/compute-sanitizer"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/compute-sanitizer.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/compute-sanitizer.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/compute-sanitizer"
+      - "C:/msys64/mingw64/bin/compute-sanitizer.com"
+      - "C:/msys64/mingw64/bin/compute-sanitizer.exe"
+      - "C:/msys64/mingw64/bin/compute-sanitizer"
+      - "C:/Windows/System32/compute-sanitizer.com"
+      - "C:/Windows/System32/compute-sanitizer.exe"
+      - "C:/Windows/System32/compute-sanitizer"
+      - "C:/Windows/compute-sanitizer.com"
+      - "C:/Windows/compute-sanitizer.exe"
+      - "C:/Windows/compute-sanitizer"
+      - "C:/Windows/System32/wbem/compute-sanitizer.com"
+      - "C:/Windows/System32/wbem/compute-sanitizer.exe"
+      - "C:/Windows/System32/wbem/compute-sanitizer"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/compute-sanitizer.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/compute-sanitizer.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/compute-sanitizer"
+      - "C:/Windows/System32/OpenSSH/compute-sanitizer.com"
+      - "C:/Windows/System32/OpenSSH/compute-sanitizer.exe"
+      - "C:/Windows/System32/OpenSSH/compute-sanitizer"
+      - "C:/Program Files/Git/cmd/compute-sanitizer.com"
+      - "C:/Program Files/Git/cmd/compute-sanitizer.exe"
+      - "C:/Program Files/Git/cmd/compute-sanitizer"
+      - "C:/Program Files/Go/bin/compute-sanitizer.com"
+      - "C:/Program Files/Go/bin/compute-sanitizer.exe"
+      - "C:/Program Files/Go/bin/compute-sanitizer"
+      - "C:/Program Files/nodejs/compute-sanitizer.com"
+      - "C:/Program Files/nodejs/compute-sanitizer.exe"
+      - "C:/Program Files/nodejs/compute-sanitizer"
+      - "C:/Program Files/eSpeak NG/compute-sanitizer.com"
+      - "C:/Program Files/eSpeak NG/compute-sanitizer.exe"
+      - "C:/Program Files/eSpeak NG/compute-sanitizer"
+      - "C:/Users/khali/.cargo/bin/compute-sanitizer.com"
+      - "C:/Users/khali/.cargo/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/.cargo/bin/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/agy/bin/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/agy/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/agy/bin/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/compute-sanitizer"
+      - "C:/Users/khali/go/bin/compute-sanitizer.com"
+      - "C:/Users/khali/go/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/go/bin/compute-sanitizer"
+      - "C:/Users/khali/go_sdk/go/bin/compute-sanitizer.com"
+      - "C:/Users/khali/go_sdk/go/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/go_sdk/go/bin/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/compute-sanitizer"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/compute-sanitizer"
+      - "C:/Users/khali/AppData/Roaming/npm/compute-sanitizer.com"
+      - "C:/Users/khali/AppData/Roaming/npm/compute-sanitizer.exe"
+      - "C:/Users/khali/AppData/Roaming/npm/compute-sanitizer"
+      - "C:/Program Files/bin/compute-sanitizer.com"
+      - "C:/Program Files/bin/compute-sanitizer.exe"
+      - "C:/Program Files/bin/compute-sanitizer"
+      - "C:/Program Files/sbin/compute-sanitizer.com"
+      - "C:/Program Files/sbin/compute-sanitizer.exe"
+      - "C:/Program Files/sbin/compute-sanitizer"
+      - "C:/Program Files/compute-sanitizer.com"
+      - "C:/Program Files/compute-sanitizer.exe"
+      - "C:/Program Files/compute-sanitizer"
+      - "C:/Program Files (x86)/bin/compute-sanitizer.com"
+      - "C:/Program Files (x86)/bin/compute-sanitizer.exe"
+      - "C:/Program Files (x86)/bin/compute-sanitizer"
+      - "C:/Program Files (x86)/sbin/compute-sanitizer.com"
+      - "C:/Program Files (x86)/sbin/compute-sanitizer.exe"
+      - "C:/Program Files (x86)/sbin/compute-sanitizer"
+      - "C:/Program Files (x86)/compute-sanitizer.com"
+      - "C:/Program Files (x86)/compute-sanitizer.exe"
+      - "C:/Program Files (x86)/compute-sanitizer"
+      - "C:/msys64/mingw64/bin/compute-sanitizer.com"
+      - "C:/msys64/mingw64/bin/compute-sanitizer.exe"
+      - "C:/msys64/mingw64/bin/compute-sanitizer"
+      - "C:/msys64/mingw64/sbin/compute-sanitizer.com"
+      - "C:/msys64/mingw64/sbin/compute-sanitizer.exe"
+      - "C:/msys64/mingw64/sbin/compute-sanitizer"
+      - "C:/msys64/mingw64/compute-sanitizer.com"
+      - "C:/msys64/mingw64/compute-sanitizer.exe"
+      - "C:/msys64/mingw64/compute-sanitizer"
+      - "C:/Program Files (x86)/CAIR/bin/compute-sanitizer.com"
+      - "C:/Program Files (x86)/CAIR/bin/compute-sanitizer.exe"
+      - "C:/Program Files (x86)/CAIR/bin/compute-sanitizer"
+      - "C:/Program Files (x86)/CAIR/sbin/compute-sanitizer.com"
+      - "C:/Program Files (x86)/CAIR/sbin/compute-sanitizer.exe"
+      - "C:/Program Files (x86)/CAIR/sbin/compute-sanitizer"
+      - "C:/Program Files (x86)/CAIR/compute-sanitizer.com"
+      - "C:/Program Files (x86)/CAIR/compute-sanitizer.exe"
+      - "C:/Program Files (x86)/CAIR/compute-sanitizer"
+      - "/REGISTRY-NOTFOUND/compute-sanitizer.com"
+      - "/REGISTRY-NOTFOUND/compute-sanitizer.exe"
+      - "/REGISTRY-NOTFOUND/compute-sanitizer"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/CAIR"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/msys64/mingw64"
+        - "C:/Program Files (x86)/CAIR"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CTest.cmake:196 (find_program)"
+      - "CMakeLists.txt:49 (include)"
+    mode: "program"
+    variable: "COVERAGE_COMMAND"
+    description: "Path to the coverage program that CTest uses for performing coverage inspection"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcov"
+    candidate_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Go/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/eSpeak NG/"
+      - "C:/Users/khali/.cargo/bin/"
+      - "C:/Users/khali/AppData/Local/agy/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/Scripts/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Python314/"
+      - "C:/Users/khali/AppData/Local/Programs/Python/Launcher/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/khali/go/bin/"
+      - "C:/Users/khali/go_sdk/go/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Zed/bin/"
+      - "C:/Users/khali/AppData/Local/GitHubCopilotCLI/"
+      - "C:/Users/khali/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/khali/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
+      - "C:/Users/khali/AppData/Roaming/npm/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/msys64/mingw64/sbin/"
+      - "C:/msys64/mingw64/"
+      - "C:/Program Files (x86)/CAIR/bin/"
+      - "C:/Program Files (x86)/CAIR/sbin/"
+      - "C:/Program Files (x86)/CAIR/"
+    searched_directories:
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/gcov.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/gcov.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/bin/gcov"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/gcov.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/gcov.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/sbin/gcov"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/gcov.com"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/gcov.exe"
+      - "C:/Users/khali/Code/C-AIR/Raven/install/gcov"
+      - "C:/msys64/mingw64/bin/gcov.com"
+    found: "C:/msys64/mingw64/bin/gcov.exe"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:\\Users\\khali\\Code\\C-AIR\\Raven\\install"
+      ENV{PATH}:
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\eSpeak NG\\"
+        - "C:\\Users\\khali\\.cargo\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\Scripts\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Python314\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Python\\Launcher\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\khali\\go\\bin"
+        - "C:\\Users\\khali\\go_sdk\\go\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Zed\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\GitHubCopilotCLI\\"
+        - "C:\\Users\\khali\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\khali\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
+        - "C:\\Users\\khali\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/CAIR"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/msys64/mingw64"
+        - "C:/Program Files (x86)/CAIR"
+...
