@@ -43,6 +43,7 @@ static int create_window(void) {
 	char root_path[MAX_PATH];
 	DWORD length = GetCurrentDirectoryA((DWORD)sizeof(root_path), root_path);
 	Rid outer;
+	Rid header;
 	Rid splitter;
 	Rid explorer;
 	Rid editor;
@@ -51,11 +52,13 @@ static int create_window(void) {
 	if (length == 0 || length >= sizeof(root_path)) return 0;
 	if (!cair_project_tree_scan(&app.project, root_path)) return 0;
 
-	app.window = Rwindow_create("C-AIR", 1120, 720, R_WINDOW_DEFAULT);
+	app.window = Rwindow_create("C-AIR", 1120, 720, R_WINDOW_CUSTOM_HEADER);
 	if (app.window == R_INVALID_ID) return 0;
 	outer = Rwidget_create(R_WIDGET_VBOX);
+	header = Rheader_bar_create(NULL);
 	splitter = Rwidget_create(R_WIDGET_SPLITTER);
-	if (outer == R_INVALID_ID || splitter == R_INVALID_ID) return 0;
+	if (outer == R_INVALID_ID || header == R_INVALID_ID || splitter == R_INVALID_ID) return 0;
+	Rwidget_add_child(outer, header);
 	Rsplitter_set_orientation(splitter, R_HORIZONTAL);
 	Rsplitter_set_min_pane_size(splitter, 180.0f);
 	Rslot_set_fill(splitter, 1.0f);
