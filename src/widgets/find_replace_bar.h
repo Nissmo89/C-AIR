@@ -17,6 +17,7 @@ typedef struct CairFindReplaceBar {
 } CairFindReplaceBar;
 
 Rid cair_find_replace_bar_create(CairFindReplaceBar* bar, Rid editor);
+void cair_find_replace_bar_set_editor(CairFindReplaceBar* bar, Rid editor);
 void cair_find_replace_bar_show(CairFindReplaceBar* bar, int show_replace_row);
 void cair_find_replace_bar_close(CairFindReplaceBar* bar);
 void cair_find_replace_bar_register_shortcuts(CairFindReplaceBar* bar, Rid window);

@@ -265,8 +265,22 @@ Rid cair_find_replace_bar_create(CairFindReplaceBar* bar, Rid editor) {
 	return bar->root;
 }
 
+void cair_find_replace_bar_set_editor(CairFindReplaceBar* bar, Rid editor) {
+	if (!bar || bar->editor == editor) return;
+	if (bar->editor != R_INVALID_ID) Rtext_editor_set_changed_callback(bar->editor, NULL, NULL);
+	bar->editor = editor;
+	if (editor == R_INVALID_ID) {
+		bar->match_count = 0;
+		Rlabel_set_text(bar->count_label, "0 matches");
+		Rwidget_set_visibility(bar->root, R_COLLAPSED);
+		return;
+	}
+	Rtext_editor_set_changed_callback(editor, editor_changed, bar);
+	update_count(bar);
+}
+
 void cair_find_replace_bar_show(CairFindReplaceBar* bar, int show_replace_row) {
-	if (!bar || bar->root == R_INVALID_ID) return;
+	if (!bar || bar->root == R_INVALID_ID || bar->editor == R_INVALID_ID) return;
 	Rwidget_set_visibility(bar->root, R_VISIBLE);
 	Rwidget_set_visibility(bar->replace_row, show_replace_row ? R_VISIBLE : R_COLLAPSED);
 	Rwidget_focus(bar->find_input);
@@ -275,7 +289,7 @@ void cair_find_replace_bar_show(CairFindReplaceBar* bar, int show_replace_row) {
 void cair_find_replace_bar_close(CairFindReplaceBar* bar) {
 	if (!bar || bar->root == R_INVALID_ID) return;
 	Rwidget_set_visibility(bar->root, R_COLLAPSED);
-	Rwidget_focus(bar->editor);
+	if (bar->editor != R_INVALID_ID) Rwidget_focus(bar->editor);
 }
 
 void cair_find_replace_bar_register_shortcuts(CairFindReplaceBar* bar, Rid window) {

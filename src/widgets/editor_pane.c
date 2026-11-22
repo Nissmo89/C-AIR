@@ -1,14 +1,14 @@
 #include "widgets/editor_pane.h"
+#include "widgets/breadcrumb_bar.h"
 
 Rid cair_editor_pane_create(CairEditorPane* pane) {
 	if (!pane) return R_INVALID_ID;
 	pane->root = Rwidget_create(R_WIDGET_VBOX);
 	if (pane->root == R_INVALID_ID) return R_INVALID_ID;
-	Rpanel_set_spacing(pane->root, 6.0f);
-	pane->file_label = Rlabel_create("welcome.c");
-	if (pane->file_label == R_INVALID_ID) return R_INVALID_ID;
-	Rlabel_set_text_size(pane->file_label, 13.0f);
-	Rwidget_add_child(pane->root, pane->file_label);
+	Rpanel_set_spacing(pane->root, 0.0f);
+	pane->breadcrumb = cair_breadcrumb_bar_create();
+	if (pane->breadcrumb == R_INVALID_ID) return R_INVALID_ID;
+	Rwidget_add_child(pane->root, pane->breadcrumb);
 	pane->toolbar_host = Rwidget_add_child(pane->root, Rwidget_create(R_WIDGET_VBOX));
 	if (pane->toolbar_host == R_INVALID_ID) return R_INVALID_ID;
 	pane->editor = Rwidget_add_child(pane->root, Rtext_editor_create(NULL));
@@ -35,7 +35,7 @@ int cair_editor_pane_open_file(CairEditorPane* pane, const char* path) {
 	Rtext_editor_set_text(pane->editor, text);
 	Rmemory_free(text);
 	Rtext_editor_set_language(pane->editor, Rlanguage_for_file(path));
-	Rlabel_set_text(pane->file_label, path);
+	cair_breadcrumb_bar_set_path(pane->breadcrumb, path);
 	return 1;
 }
 

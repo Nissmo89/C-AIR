@@ -5,7 +5,7 @@
 
 typedef struct CairEditorPane {
 	Rid root;
-	Rid file_label;
+	Rid breadcrumb;
 	Rid toolbar_host;
 	Rid editor;
 } CairEditorPane;
