@@ -229,6 +229,59 @@ int main(void) {
 				if (cair_find_replace_bar_get_match_count(&find_replace) != 0
 					|| Rwidget_get_visibility(find_replace.root) != R_COLLAPSED) failed = 1;
 				cair_find_replace_bar_close(&find_replace);
+
+				/* Continuous text selection rendering integration tests */
+				/* 1. Single character / very short selection */
+				Rtext_editor_select(editor.editor, 0, 4, 0, 5);
+				Rdraw_frame();
+
+				/* 2. Single line word selection */
+				Rtext_editor_select(editor.editor, 0, 4, 0, 15);
+				Rdraw_frame();
+
+				/* 3. Multi-line selection with partial rows */
+				Rtext_editor_set_text(editor.editor,
+					"void function_alpha(int a, int b) {\n"
+					"    int value = a + b;\n"
+					"    if (value > 10) {\n"
+					"        return value * 2;\n"
+					"    }\n"
+					"    return 0;\n"
+					"}\n");
+				Rtext_editor_select(editor.editor, 0, 5, 3, 10);
+				Rdraw_frame();
+
+				/* 4. Reverse selection (drag bottom to top) */
+				Rtext_editor_select(editor.editor, 3, 10, 0, 5);
+				Rdraw_frame();
+
+				/* 5. Inward step and outward step transitions */
+				Rtext_editor_set_text(editor.editor,
+					"short\n"
+					"very_long_line_here_to_step_outward_and_then_inward\n"
+					"mid_length_line\n");
+				Rtext_editor_select(editor.editor, 0, 2, 2, 8);
+				Rdraw_frame();
+
+				/* 6. Multi-cursor selections */
+				Rtext_editor_select(editor.editor, 0, 0, 0, 3);
+				Rtext_editor_add_selection(editor.editor, 1, 0, 1, 5);
+				Rdraw_frame();
+				Rtext_editor_clear_cursors(editor.editor);
+
+				/* 7. Soft wrapping selection */
+				Rtext_editor_set_word_wrap(editor.editor, 1);
+				Rtext_editor_set_text(editor.editor,
+					"A long text line that will be wrapped across multiple visual rows inside the editor viewport when soft wrap is enabled.\n"
+					"Second line following the wrapped block.\n");
+				Rtext_editor_select(editor.editor, 0, 10, 1, 10);
+				Rdraw_frame();
+				Rtext_editor_set_word_wrap(editor.editor, 0);
+
+				/* 8. Scrolling with selection */
+				Rtext_editor_scroll_to_line(editor.editor, 1);
+				Rdraw_frame();
+
 				DeleteFileA(path);
 			}
 		}
