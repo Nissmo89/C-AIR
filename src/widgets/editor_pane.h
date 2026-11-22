@@ -13,6 +13,5 @@ typedef struct CairEditorPane {
 Rid cair_editor_pane_create(CairEditorPane* pane);
 int cair_editor_pane_add_toolbar(CairEditorPane* pane, Rid toolbar);
 int cair_editor_pane_open_file(CairEditorPane* pane, const char* path);
-void cair_editor_pane_set_welcome_text(CairEditorPane* pane);
 
 #endif

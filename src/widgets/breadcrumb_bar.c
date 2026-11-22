@@ -17,10 +17,7 @@ void cair_breadcrumb_bar_set_path(Rid breadcrumb, const char* path) {
 	size_t length;
 	if (breadcrumb == R_INVALID_ID) return;
 	Rbreadcrumb_set_items(breadcrumb, "");
-	if (!path || !path[0]) {
-		Rbreadcrumb_add_item(breadcrumb, "welcome.c");
-		return;
-	}
+	if (!path || !path[0]) return;
 	part = path;
 	for (cursor = path;; ++cursor) {
 		if (*cursor == '\\' || *cursor == '/' || *cursor == '\0') {

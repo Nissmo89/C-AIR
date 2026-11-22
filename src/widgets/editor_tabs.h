@@ -17,7 +17,6 @@ typedef struct CairEditorTabs {
 	Rid toolbar_host;
 	Rid tab_view;
 	Rid active_editor;
-	CairEditorPane welcome;
 	CairEditorDocument* documents;
 	size_t count;
 	size_t capacity;

@@ -19,7 +19,6 @@ Rid cair_editor_pane_create(CairEditorPane* pane) {
 	Rtext_editor_set_line_numbers(pane->editor, R_TRUE);
 	Rtext_editor_set_tab_size(pane->editor, 4);
 	Rtext_editor_set_tab_inserts_spaces(pane->editor, R_TRUE);
-	cair_editor_pane_set_welcome_text(pane);
 	return pane->root;
 }
 
@@ -39,15 +38,4 @@ int cair_editor_pane_open_file(CairEditorPane* pane, const char* path) {
 	cair_breadcrumb_bar_set_path(pane->breadcrumb, path);
 	Rwidget_set_visibility(pane->breadcrumb, R_VISIBLE);
 	return 1;
-}
-
-void cair_editor_pane_set_welcome_text(CairEditorPane* pane) {
-	if (!pane) return;
-	Rtext_editor_set_text(pane->editor,
-		"/* C-AIR: a lightweight C editor */\n"
-		"#include <stdio.h>\n\n"
-		"int main(void) {\n"
-		"    puts(\"Hello from C-AIR\");\n"
-		"    return 0;\n"
-		"}\n");
 }

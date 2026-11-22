@@ -126,9 +126,9 @@ int main(void) {
 	if (!widgets_ready) failed = 1;
 	if (widgets_ready) {
 		if (Rwidget_get_visibility(editor.breadcrumb) != R_COLLAPSED
-			|| Rwidget_get_visibility(tabs.welcome.breadcrumb) != R_COLLAPSED
-			|| Rwidget_get_visibility(tabs.welcome.root) != R_VISIBLE
-			|| Rwidget_get_visibility(tabs.tab_view) != R_COLLAPSED) failed = 1;
+			|| Rwidget_get_visibility(tabs.tab_view) != R_COLLAPSED
+			|| cair_editor_tabs_get_active_editor(&tabs) != R_INVALID_ID
+			|| strcmp(Rtext_editor_get_text(editor.editor), "") != 0) failed = 1;
 		if (!editor_colors_follow_theme(&tabs, &editor)) failed = 1;
 		Rwidget_add_child(container, explorer.root);
 		Rwidget_add_child(container, editor.root);
@@ -171,8 +171,7 @@ int main(void) {
 				tab_editor = cair_editor_tabs_open_file(&tabs, path);
 				if (tab_editor == R_INVALID_ID || cair_editor_tabs_get_count(&tabs) != 1
 					|| observer.editor != tab_editor || Rtab_view_get_active(tabs.tab_view) != 0
-					|| Rwidget_get_visibility(tabs.tab_view) != R_VISIBLE
-					|| Rwidget_get_visibility(tabs.welcome.root) != R_COLLAPSED) failed = 1;
+					|| Rwidget_get_visibility(tabs.tab_view) != R_VISIBLE) failed = 1;
 				if (tabs.count != 1 || Rbreadcrumb_get_item_count(tabs.documents[0].pane.breadcrumb) < 2
 					|| Rwidget_get_visibility(tabs.documents[0].pane.breadcrumb) != R_VISIBLE
 					|| strcmp(Rbreadcrumb_get_item_text(tabs.documents[0].pane.breadcrumb,
