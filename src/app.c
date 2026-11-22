@@ -25,7 +25,7 @@ static CairApp app;
 static void editor_changed(Rid editor, const char* path, void* user_data) {
 	CairApp* state = (CairApp*)user_data;
 	(void)path;
-	if (!state || state->find_replace.editor == R_INVALID_ID) return;
+	if (!state || state->find_replace.root == R_INVALID_ID) return;
 	cair_find_replace_bar_set_editor(&state->find_replace, editor);
 	if (editor != R_INVALID_ID) cair_find_replace_bar_refresh(&state->find_replace);
 }

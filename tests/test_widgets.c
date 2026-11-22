@@ -117,7 +117,8 @@ int main(void) {
 	if (cair_project_explorer_create(&explorer, &model, on_open, &opened) == R_INVALID_ID) failed = 1;
 	if (cair_editor_pane_create(&editor) == R_INVALID_ID) failed = 1;
 	if (cair_editor_tabs_create(&tabs, tabs_changed, &observer) == R_INVALID_ID) failed = 1;
-	if (cair_find_replace_bar_create(&find_replace, editor.editor) == R_INVALID_ID) failed = 1;
+	if (cair_find_replace_bar_create(&find_replace, R_INVALID_ID) == R_INVALID_ID) failed = 1;
+	if (find_replace.root != R_INVALID_ID) cair_find_replace_bar_set_editor(&find_replace, editor.editor);
 	if (cair_status_bar_create(&status) == R_INVALID_ID) failed = 1;
 	widgets_ready = container != R_INVALID_ID && explorer.root != R_INVALID_ID && explorer.tree != R_INVALID_ID
 		&& editor.root != R_INVALID_ID && editor.editor != R_INVALID_ID && tabs.root != R_INVALID_ID

@@ -203,7 +203,7 @@ Rid cair_find_replace_bar_create(CairFindReplaceBar* bar, Rid editor) {
 	Rid find_row;
 	Rid replace_row;
 	Rid button;
-	if (!bar || editor == R_INVALID_ID) return R_INVALID_ID;
+	if (!bar) return R_INVALID_ID;
 	memset(bar, 0, sizeof(*bar));
 	bar->editor = editor;
 	bar->root = Rwidget_create(R_WIDGET_VBOX);
@@ -261,7 +261,7 @@ Rid cair_find_replace_bar_create(CairFindReplaceBar* bar, Rid editor) {
 	Rtext_input_set_committed_callback(bar->replace_input, replace_committed, bar);
 	Rcheckbox_set_changed_callback(bar->case_checkbox, options_changed, bar);
 	Rcheckbox_set_changed_callback(bar->word_checkbox, options_changed, bar);
-	Rtext_editor_set_changed_callback(editor, editor_changed, bar);
+	if (editor != R_INVALID_ID) Rtext_editor_set_changed_callback(editor, editor_changed, bar);
 	return bar->root;
 }
 
