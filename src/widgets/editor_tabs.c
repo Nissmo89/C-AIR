@@ -104,13 +104,6 @@ Rid cair_editor_tabs_create(CairEditorTabs* tabs, CairEditorTabsChangedCallback 
 	Rslot_set_fill(tabs->tab_view, 1.0f);
 	Rtab_view_set_documents(tabs->tab_view, R_TRUE);
 	Rwidget_set_metric(tabs->tab_view, R_METRIC_CONTROL_HEIGHT, 28.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_HEADER, 0.922f, 0.925f, 0.929f, 1.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_HEADER_HOVERED, 0.949f, 0.953f, 0.957f, 1.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_TAB_ACTIVE, 1.0f, 1.0f, 1.0f, 1.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_SEPARATOR, 0.820f, 0.820f, 0.820f, 1.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_TEXT, 0.0f, 0.0f, 0.0f, 1.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_TEXT_DISABLED, 0.376f, 0.376f, 0.376f, 1.0f);
-	Rwidget_set_color(tabs->tab_view, R_COLOR_CONTROL_PRESSED, 0.878f, 0.878f, 0.878f, 1.0f);
 	Rwidget_add_child(tabs->root, tabs->tab_view);
 	Rtab_view_set_changed_callback(tabs->tab_view, tab_changed, tabs);
 	Rtab_view_set_close_callback(tabs->tab_view, tab_closing, tabs);

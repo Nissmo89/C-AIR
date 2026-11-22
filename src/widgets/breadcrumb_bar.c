@@ -6,10 +6,6 @@ Rid cair_breadcrumb_bar_create(void) {
 	Rid breadcrumb = Rwidget_create(R_WIDGET_BREADCRUMB);
 	if (breadcrumb == R_INVALID_ID) return R_INVALID_ID;
 	Rwidget_set_metric(breadcrumb, R_METRIC_CONTROL_HEIGHT, 30.0f);
-	Rwidget_set_color(breadcrumb, R_COLOR_TAB_ACTIVE, 1.0f, 1.0f, 1.0f, 1.0f);
-	Rwidget_set_color(breadcrumb, R_COLOR_SEPARATOR, 0.820f, 0.820f, 0.820f, 1.0f);
-	Rwidget_set_color(breadcrumb, R_COLOR_TEXT, 0.133f, 0.133f, 0.133f, 1.0f);
-	Rwidget_set_color(breadcrumb, R_COLOR_ROW_HOVERED, 0.937f, 0.937f, 0.937f, 1.0f);
 	cair_breadcrumb_bar_set_path(breadcrumb, NULL);
 	return breadcrumb;
 }

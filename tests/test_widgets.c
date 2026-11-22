@@ -30,6 +30,42 @@ static void tabs_changed(Rid editor, const char* path, void* user_data) {
 	observer->changes++;
 }
 
+static int widget_color_matches_theme(Rid widget, RColorRole role) {
+	float actual[4];
+	float expected[4];
+	int i;
+	Rwidget_get_color(widget, role, &actual[0], &actual[1], &actual[2], &actual[3]);
+	Rtheme_get_color(role, &expected[0], &expected[1], &expected[2], &expected[3]);
+	for (i = 0; i < 4; ++i) {
+		float difference = actual[i] - expected[i];
+		if (difference < -0.001f || difference > 0.001f) return 0;
+	}
+	return 1;
+}
+
+static int editor_colors_follow_theme(const CairEditorTabs* tabs, const CairEditorPane* pane) {
+	RLook original = Rlook_get();
+	int follows_theme = 1;
+	RColorRole tab_roles[] = {
+		R_COLOR_HEADER, R_COLOR_HEADER_HOVERED, R_COLOR_TAB_ACTIVE, R_COLOR_SEPARATOR,
+		R_COLOR_TEXT, R_COLOR_TEXT_DISABLED, R_COLOR_CONTROL_PRESSED
+	};
+	RColorRole breadcrumb_roles[] = {
+		R_COLOR_TAB_ACTIVE, R_COLOR_SEPARATOR, R_COLOR_TEXT, R_COLOR_ROW_HOVERED
+	};
+	size_t i;
+	int look;
+	for (look = 0; look < 2; ++look) {
+		Rlook_set(look == 0 ? R_LOOK_RAVEN_DARK : R_LOOK_RAVEN_LIGHT);
+		for (i = 0; i < sizeof(tab_roles) / sizeof(tab_roles[0]); ++i)
+			if (!widget_color_matches_theme(tabs->tab_view, tab_roles[i])) follows_theme = 0;
+		for (i = 0; i < sizeof(breadcrumb_roles) / sizeof(breadcrumb_roles[0]); ++i)
+			if (!widget_color_matches_theme(pane->breadcrumb, breadcrumb_roles[i])) follows_theme = 0;
+	}
+	Rlook_set(original);
+	return follows_theme;
+}
+
 int main(void) {
 	CairProjectNode sample_file;
 	CairProjectNode* root_children[1];
@@ -87,6 +123,7 @@ int main(void) {
 		&& status.root != R_INVALID_ID && status.label != R_INVALID_ID;
 	if (!widgets_ready) failed = 1;
 	if (widgets_ready) {
+		if (!editor_colors_follow_theme(&tabs, &editor)) failed = 1;
 		Rwidget_add_child(container, explorer.root);
 		Rwidget_add_child(container, editor.root);
 		Rwidget_add_child(container, tabs.root);
