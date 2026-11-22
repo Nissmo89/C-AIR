@@ -247,17 +247,20 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-The C-AIR project includes the Raven source checkout in `Raven/`. Running
-`build.bat` configures, builds, and installs Raven into `Raven/install/`, then
-builds C-AIR against that library and runs the C-AIR tests. Raven's optional
-examples, tests, tools, and web component are disabled in this workflow.
+The C-AIR project includes Raven as a submodule in `third_party/Raven/`.
+Running `build.bat` configures and builds Raven in its dedicated
+`third_party/Raven/build-cair/` directory, installs it under
+`build/raven-install/`, then builds C-AIR against that library and runs the
+C-AIR tests. Raven's optional examples, tests, tools, and web component are
+disabled in this workflow.
 
 Each C-AIR build gets a timestamped executable name in `build/bin`. Close any
 running C-AIR application before running the script because it removes the
 C-AIR `build/` folder, and Windows will not delete a running executable.
-Raven's build and install folders are kept for incremental builds. A plain
-CMake build uses `build/bin/cair.exe` unless you set `CAIR_OUTPUT_NAME` when
-configuring.
+Raven's dedicated build directory is kept for incremental builds. The local
+install and C-AIR outputs are under `build/`, which is recreated each run. A
+plain CMake build uses `build/bin/cair.exe` unless you set `CAIR_OUTPUT_NAME`
+when configuring.
 
 ---
 

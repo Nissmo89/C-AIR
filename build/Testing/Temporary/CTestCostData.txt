@@ -1,5 +1,0 @@
-unit_project_tree 1 0.161484
-unit_find_replace 1 0.886439
-integration_widgets 1 0.641541
-e2e_app_startup 1 0.794765
----

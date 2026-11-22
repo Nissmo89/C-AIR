@@ -6,8 +6,8 @@ if errorlevel 1 exit /b 1
 
 set "PATH=C:\msys64\mingw64\bin;%PATH%"
 set "RAVEN_SOURCE_DIR=%PROJECT_ROOT%third_party\Raven"
-set "RAVEN_BUILD_DIR=%RAVEN_SOURCE_DIR%\build"
-set "RAVEN_INSTALL_DIR=%RAVEN_SOURCE_DIR%\install"
+set "RAVEN_BUILD_DIR=%RAVEN_SOURCE_DIR%\build-cair"
+set "RAVEN_INSTALL_DIR=%PROJECT_ROOT%build\raven-install"
 if not exist "%RAVEN_SOURCE_DIR%\CMakeLists.txt" (
 	echo Raven source checkout was not found at "%RAVEN_SOURCE_DIR%".
 	exit /b 1
