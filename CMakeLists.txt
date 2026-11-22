@@ -24,6 +24,7 @@ add_library(cair_ui STATIC
 	src/widgets/breadcrumb_bar.c
 	src/widgets/editor_pane.c
 	src/widgets/editor_tabs.c
+	src/widgets/main_menu.c
 	src/widgets/find_replace_bar.c
 	src/widgets/status_bar.c
 	src/search/find_replace.c

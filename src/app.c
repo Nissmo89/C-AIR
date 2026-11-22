@@ -5,6 +5,7 @@
 #include "model/project_tree.h"
 #include "widgets/editor_tabs.h"
 #include "widgets/find_replace_bar.h"
+#include "widgets/main_menu.h"
 #include "widgets/project_explorer.h"
 #include "widgets/status_bar.h"
 
@@ -16,6 +17,7 @@ typedef struct CairApp {
 	CairProjectTree project;
 	CairProjectExplorer explorer;
 	CairEditorTabs tabs;
+	CairMainMenu main_menu;
 	CairFindReplaceBar find_replace;
 	CairStatusBar status;
 } CairApp;
@@ -30,12 +32,64 @@ static void editor_changed(Rid editor, const char* path, void* user_data) {
 	if (editor != R_INVALID_ID) cair_find_replace_bar_refresh(&state->find_replace);
 }
 
-static void open_file(const CairProjectNode* node, void* user_data) {
-	CairApp* state = (CairApp*)user_data;
-	if (node && cair_editor_tabs_open_file(&state->tabs, node->path) != R_INVALID_ID) {
+static void open_path(CairApp* state, const char* path) {
+	if (state && path && cair_editor_tabs_open_file(&state->tabs, path) != R_INVALID_ID) {
 		cair_status_bar_set_text(&state->status, "Ready");
 	} else {
 		cair_status_bar_set_text(&state->status, "Could not read this file.");
+	}
+}
+
+static void open_file(const CairProjectNode* node, void* user_data) {
+	if (node && !node->is_directory) open_path((CairApp*)user_data, node->path);
+}
+
+static void main_menu_action(CairMainMenuAction action, void* user_data) {
+	CairApp* state = (CairApp*)user_data;
+	Rid editor;
+	if (!state) return;
+	switch (action) {
+		case CAIR_MAIN_MENU_OPEN_FILE: {
+			static const RFileFilter filters[] = {
+				{ "C and C++ source files", "*.c;*.h;*.cc;*.cpp;*.cxx;*.hpp" },
+				{ "All files", "*" }
+			};
+			RFileDialogDesc desc;
+			const char* path;
+			memset(&desc, 0, sizeof(desc));
+			desc.parent = state->window;
+			desc.title = "Open File";
+			desc.directory = state->project.root ? state->project.root->path : NULL;
+			desc.filters = filters;
+			desc.filter_count = (int)(sizeof(filters) / sizeof(filters[0]));
+			path = Rfile_dialog_open(&desc);
+			if (path) open_path(state, path);
+			break;
+		}
+		case CAIR_MAIN_MENU_QUIT:
+			Rwindow_close(state->window);
+			break;
+		case CAIR_MAIN_MENU_UNDO:
+			editor = cair_editor_tabs_get_active_editor(&state->tabs);
+			if (editor != R_INVALID_ID) Rtext_editor_undo(editor);
+			break;
+		case CAIR_MAIN_MENU_REDO:
+			editor = cair_editor_tabs_get_active_editor(&state->tabs);
+			if (editor != R_INVALID_ID) Rtext_editor_redo(editor);
+			break;
+		case CAIR_MAIN_MENU_FIND:
+			cair_find_replace_bar_show(&state->find_replace, 0);
+			break;
+		case CAIR_MAIN_MENU_FIND_REPLACE:
+			cair_find_replace_bar_show(&state->find_replace, 1);
+			break;
+		case CAIR_MAIN_MENU_TOGGLE_EXPLORER:
+			Rwidget_set_visibility(state->explorer.root,
+				Rwidget_get_visibility(state->explorer.root) == R_VISIBLE ? R_COLLAPSED : R_VISIBLE);
+			break;
+		case CAIR_MAIN_MENU_ABOUT:
+			Rmessage_box(state->window, "About C-AIR", "A lightweight C code editor.", R_MESSAGE_OK);
+			break;
 	}
 }
 
@@ -44,6 +98,7 @@ static int create_window(void) {
 	DWORD length = GetCurrentDirectoryA((DWORD)sizeof(root_path), root_path);
 	Rid outer;
 	Rid header;
+	Rid menu_bar;
 	Rid splitter;
 	Rid explorer;
 	Rid editor;
@@ -56,8 +111,10 @@ static int create_window(void) {
 	if (app.window == R_INVALID_ID) return 0;
 	outer = Rwidget_create(R_WIDGET_VBOX);
 	header = Rheader_bar_create(NULL);
+	menu_bar = cair_main_menu_create(&app.main_menu, main_menu_action, &app);
 	splitter = Rwidget_create(R_WIDGET_SPLITTER);
-	if (outer == R_INVALID_ID || header == R_INVALID_ID || splitter == R_INVALID_ID) return 0;
+	if (outer == R_INVALID_ID || header == R_INVALID_ID || menu_bar == R_INVALID_ID || splitter == R_INVALID_ID) return 0;
+	Rwidget_add_child(header, menu_bar);
 	Rwidget_add_child(outer, header);
 	Rsplitter_set_orientation(splitter, R_HORIZONTAL);
 	Rsplitter_set_min_pane_size(splitter, 180.0f);

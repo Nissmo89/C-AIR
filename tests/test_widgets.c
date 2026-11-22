@@ -6,6 +6,7 @@
 #include "widgets/editor_pane.h"
 #include "widgets/editor_tabs.h"
 #include "widgets/find_replace_bar.h"
+#include "widgets/main_menu.h"
 #include "widgets/project_explorer.h"
 #include "widgets/status_bar.h"
 
@@ -74,6 +75,7 @@ int main(void) {
 	CairProjectExplorer explorer;
 	CairEditorPane editor;
 	CairEditorTabs tabs;
+	CairMainMenu menu;
 	CairFindReplaceBar find_replace;
 	CairStatusBar status;
 	Rid container;
@@ -97,6 +99,7 @@ int main(void) {
 	memset(&explorer, 0, sizeof(explorer));
 	memset(&editor, 0, sizeof(editor));
 	memset(&tabs, 0, sizeof(tabs));
+	memset(&menu, 0, sizeof(menu));
 	memset(&find_replace, 0, sizeof(find_replace));
 	memset(&status, 0, sizeof(status));
 	observer.editor = R_INVALID_ID;
@@ -117,12 +120,14 @@ int main(void) {
 	if (cair_project_explorer_create(&explorer, &model, on_open, &opened) == R_INVALID_ID) failed = 1;
 	if (cair_editor_pane_create(&editor) == R_INVALID_ID) failed = 1;
 	if (cair_editor_tabs_create(&tabs, tabs_changed, &observer) == R_INVALID_ID) failed = 1;
+	if (cair_main_menu_create(&menu, NULL, NULL) == R_INVALID_ID) failed = 1;
+	else if (Rmenu_bar_is_native(menu.root) != R_FALSE) failed = 1;
 	if (cair_find_replace_bar_create(&find_replace, R_INVALID_ID) == R_INVALID_ID) failed = 1;
 	if (find_replace.root != R_INVALID_ID) cair_find_replace_bar_set_editor(&find_replace, editor.editor);
 	if (cair_status_bar_create(&status) == R_INVALID_ID) failed = 1;
 	widgets_ready = container != R_INVALID_ID && explorer.root != R_INVALID_ID && explorer.tree != R_INVALID_ID
 		&& editor.root != R_INVALID_ID && editor.editor != R_INVALID_ID && tabs.root != R_INVALID_ID
-		&& tabs.tab_view != R_INVALID_ID && find_replace.root != R_INVALID_ID
+		&& tabs.tab_view != R_INVALID_ID && menu.root != R_INVALID_ID && find_replace.root != R_INVALID_ID
 		&& status.root != R_INVALID_ID && status.label != R_INVALID_ID;
 	if (!widgets_ready) failed = 1;
 	if (widgets_ready) {
