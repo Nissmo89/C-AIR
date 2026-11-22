@@ -5,7 +5,7 @@ cd /d "%PROJECT_ROOT%"
 if errorlevel 1 exit /b 1
 
 set "PATH=C:\msys64\mingw64\bin;%PATH%"
-set "RAVEN_SOURCE_DIR=%PROJECT_ROOT%Raven"
+set "RAVEN_SOURCE_DIR=%PROJECT_ROOT%third_party\Raven"
 set "RAVEN_BUILD_DIR=%RAVEN_SOURCE_DIR%\build"
 set "RAVEN_INSTALL_DIR=%RAVEN_SOURCE_DIR%\install"
 if not exist "%RAVEN_SOURCE_DIR%\CMakeLists.txt" (
