@@ -8,6 +8,7 @@ Rid cair_editor_pane_create(CairEditorPane* pane) {
 	Rpanel_set_spacing(pane->root, 0.0f);
 	pane->breadcrumb = cair_breadcrumb_bar_create();
 	if (pane->breadcrumb == R_INVALID_ID) return R_INVALID_ID;
+	Rwidget_set_visibility(pane->breadcrumb, R_COLLAPSED);
 	Rwidget_add_child(pane->root, pane->breadcrumb);
 	pane->toolbar_host = Rwidget_add_child(pane->root, Rwidget_create(R_WIDGET_VBOX));
 	if (pane->toolbar_host == R_INVALID_ID) return R_INVALID_ID;
@@ -36,6 +37,7 @@ int cair_editor_pane_open_file(CairEditorPane* pane, const char* path) {
 	Rmemory_free(text);
 	Rtext_editor_set_language(pane->editor, Rlanguage_for_file(path));
 	cair_breadcrumb_bar_set_path(pane->breadcrumb, path);
+	Rwidget_set_visibility(pane->breadcrumb, R_VISIBLE);
 	return 1;
 }
 
