@@ -51,8 +51,15 @@ static void tab_changed(Rid tab_view, int index, void* user_data) {
 	Rid page;
 	if (!tabs) return;
 	if (index < 0) {
-		tabs->active_editor = R_INVALID_ID;
-		if (tabs->on_changed) tabs->on_changed(R_INVALID_ID, NULL, tabs->user_data);
+		if (tabs->count == 0) {
+			Rwidget_set_visibility(tabs->tab_view, R_COLLAPSED);
+			Rwidget_set_visibility(tabs->welcome.root, R_VISIBLE);
+			tabs->active_editor = tabs->welcome.editor;
+			if (tabs->on_changed) tabs->on_changed(tabs->welcome.editor, NULL, tabs->user_data);
+		} else {
+			tabs->active_editor = R_INVALID_ID;
+			if (tabs->on_changed) tabs->on_changed(R_INVALID_ID, NULL, tabs->user_data);
+		}
 		return;
 	}
 	page = Rtab_view_get_tab(tab_view, index);
@@ -74,6 +81,12 @@ static int tab_closing(Rid tab_view, int index, Rid page, void* user_data) {
 			if (i + 1 < tabs->count)
 				memmove(&tabs->documents[i], &tabs->documents[i + 1], (tabs->count - i - 1) * sizeof(*tabs->documents));
 			--tabs->count;
+			if (tabs->count == 0) {
+				Rwidget_set_visibility(tabs->tab_view, R_COLLAPSED);
+				Rwidget_set_visibility(tabs->welcome.root, R_VISIBLE);
+				tabs->active_editor = tabs->welcome.editor;
+				if (tabs->on_changed) tabs->on_changed(tabs->welcome.editor, NULL, tabs->user_data);
+			}
 			return R_TRUE;
 		}
 	}
@@ -84,39 +97,40 @@ static int add_document(CairEditorTabs* tabs, CairEditorDocument* document, cons
 	if (!reserve_document(tabs)) return 0;
 	if (Rtab_view_add_tab(tabs->tab_view, title, document->pane.root) < 0) return 0;
 	tabs->documents[tabs->count++] = *document;
+	Rwidget_set_visibility(tabs->welcome.root, R_COLLAPSED);
+	Rwidget_set_visibility(tabs->tab_view, R_VISIBLE);
 	Rslot_set_fill(document->pane.root, 1.0f);
 	Rtab_view_show_tab(tabs->tab_view, document->pane.root);
+	if (tabs->active_editor != document->pane.editor)
+		tab_changed(tabs->tab_view, Rtab_view_get_active(tabs->tab_view), tabs);
 	return 1;
 }
 
 Rid cair_editor_tabs_create(CairEditorTabs* tabs, CairEditorTabsChangedCallback on_changed, void* user_data) {
-	CairEditorDocument welcome;
 	if (!tabs) return R_INVALID_ID;
 	memset(tabs, 0, sizeof(*tabs));
 	tabs->root = tabs->toolbar_host = tabs->tab_view = tabs->active_editor = R_INVALID_ID;
+	tabs->welcome.root = tabs->welcome.breadcrumb = tabs->welcome.toolbar_host = tabs->welcome.editor = R_INVALID_ID;
 	tabs->on_changed = on_changed;
 	tabs->user_data = user_data;
 	tabs->root = Rwidget_create(R_WIDGET_VBOX);
 	tabs->toolbar_host = Rwidget_create(R_WIDGET_VBOX);
 	tabs->tab_view = Rwidget_create(R_WIDGET_TAB_VIEW);
-	if (tabs->root == R_INVALID_ID || tabs->toolbar_host == R_INVALID_ID || tabs->tab_view == R_INVALID_ID) return R_INVALID_ID;
+	if (tabs->root == R_INVALID_ID || tabs->toolbar_host == R_INVALID_ID || tabs->tab_view == R_INVALID_ID
+		|| cair_editor_pane_create(&tabs->welcome) == R_INVALID_ID) return R_INVALID_ID;
 	Rwidget_add_child(tabs->root, tabs->toolbar_host);
+	Rslot_set_fill(tabs->welcome.root, 1.0f);
+	Rwidget_add_child(tabs->root, tabs->welcome.root);
 	Rslot_set_fill(tabs->tab_view, 1.0f);
+	Rwidget_set_visibility(tabs->tab_view, R_COLLAPSED);
 	Rtab_view_set_documents(tabs->tab_view, R_TRUE);
 	Rwidget_set_metric(tabs->tab_view, R_METRIC_CONTROL_HEIGHT, 28.0f);
 	Rwidget_add_child(tabs->root, tabs->tab_view);
 	Rtab_view_set_changed_callback(tabs->tab_view, tab_changed, tabs);
 	Rtab_view_set_close_callback(tabs->tab_view, tab_closing, tabs);
 
-	memset(&welcome, 0, sizeof(welcome));
-	welcome.path = NULL;
-	if (cair_editor_pane_create(&welcome.pane) == R_INVALID_ID || !add_document(tabs, &welcome, "welcome.c")) {
-		free(tabs->documents);
-		tabs->documents = NULL;
-		tabs->count = tabs->capacity = 0;
-		return R_INVALID_ID;
-	}
-	tab_changed(tabs->tab_view, Rtab_view_get_active(tabs->tab_view), tabs);
+	tabs->active_editor = tabs->welcome.editor;
+	if (tabs->on_changed) tabs->on_changed(tabs->welcome.editor, NULL, tabs->user_data);
 	return tabs->root;
 }
 
