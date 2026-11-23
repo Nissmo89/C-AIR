@@ -69,7 +69,10 @@ static int editor_colors_follow_theme(const CairEditorTabs* tabs, const CairEdit
 
 int main(void) {
 	CairProjectNode sample_file;
-	CairProjectNode* root_children[1];
+	CairProjectNode nested_file;
+	CairProjectNode sample_dir;
+	CairProjectNode* nested_children[1];
+	CairProjectNode* root_children[2];
 	CairProjectTree model;
 	CairProjectNode root_node;
 	CairProjectExplorer explorer;
@@ -79,21 +82,24 @@ int main(void) {
 	CairFindReplaceBar find_replace;
 	CairStatusBar status;
 	Rid container;
-	Rid root_item;
-	Rid file_item;
-	char temp[MAX_PATH];
-	char path[MAX_PATH];
-	char second_path[MAX_PATH];
 	Rid tab_editor;
 	Rid second_tab_editor;
 	TabObserver observer;
 	FILE* file;
+	char temp[MAX_PATH];
+	char path[MAX_PATH];
+	char second_path[MAX_PATH];
 	DWORD temp_length;
 	int opened = 0;
 	int failed = 0;
 	int widgets_ready;
+	int guide_depth;
+	int guide_start;
+	int guide_end;
 
 	memset(&sample_file, 0, sizeof(sample_file));
+	memset(&nested_file, 0, sizeof(nested_file));
+	memset(&sample_dir, 0, sizeof(sample_dir));
 	memset(&root_node, 0, sizeof(root_node));
 	memset(&model, 0, sizeof(model));
 	memset(&explorer, 0, sizeof(explorer));
@@ -106,14 +112,23 @@ int main(void) {
 	observer.changes = 0;
 	sample_file.name = "example.c";
 	sample_file.path = "example.c";
-	root_children[0] = &sample_file;
+	nested_file.name = "nested.c";
+	nested_file.path = "src\\nested.c";
+	nested_children[0] = &nested_file;
+	sample_dir.name = "src";
+	sample_dir.path = "src";
+	sample_dir.is_directory = 1;
+	sample_dir.children = nested_children;
+	sample_dir.child_count = 1;
+	root_children[0] = &sample_dir;
+	root_children[1] = &sample_file;
 	root_node.name = "sample";
 	root_node.path = ".";
 	root_node.is_directory = 1;
 	root_node.children = root_children;
-	root_node.child_count = 1;
+	root_node.child_count = 2;
 	model.root = &root_node;
-	model.node_count = 2;
+	model.node_count = 4;
 
 	if (!Rinit(R_BACKEND_NULL)) return 1;
 	container = Rwidget_create(R_WIDGET_VBOX);
@@ -125,7 +140,7 @@ int main(void) {
 	if (cair_find_replace_bar_create(&find_replace, R_INVALID_ID) == R_INVALID_ID) failed = 1;
 	if (find_replace.root != R_INVALID_ID) cair_find_replace_bar_set_editor(&find_replace, editor.editor);
 	if (cair_status_bar_create(&status) == R_INVALID_ID) failed = 1;
-	widgets_ready = container != R_INVALID_ID && explorer.root != R_INVALID_ID && explorer.tree != R_INVALID_ID
+	widgets_ready = container != R_INVALID_ID && explorer.root != R_INVALID_ID && explorer.canvas != R_INVALID_ID
 		&& editor.root != R_INVALID_ID && editor.editor != R_INVALID_ID && tabs.root != R_INVALID_ID
 		&& tabs.tab_view != R_INVALID_ID && menu.root != R_INVALID_ID && find_replace.root != R_INVALID_ID
 		&& status.root != R_INVALID_ID && status.label != R_INVALID_ID;
@@ -141,10 +156,23 @@ int main(void) {
 		Rwidget_add_child(container, tabs.root);
 		Rwidget_add_child(container, status.root);
 		if (!cair_editor_pane_add_toolbar(&editor, find_replace.root)) failed = 1;
-		root_item = Rtree_view_get_item(explorer.tree, 0);
-		file_item = root_item != R_INVALID_ID ? Rtree_item_get_child(root_item, 0) : R_INVALID_ID;
-		if (file_item == R_INVALID_ID || Rtree_item_get_user_handle(file_item) != &sample_file) failed = 1;
-		else Rtree_view_set_selected_item(explorer.tree, file_item);
+		/* Explorer uses a custom canvas that paints Zed-style indent
+		 * guides.  Directories start collapsed, so only the two top-level
+		 * entries are visible; expanding "src" reveals its child. */
+		if (Rwidget_get_type(explorer.canvas) != R_WIDGET_CUSTOM) failed = 1;
+		if (cair_project_explorer_row_count(&explorer) != 2) failed = 1;
+		if (cair_project_explorer_guide_count(&explorer) != 0) failed = 1;
+		cair_project_explorer_set_directory_expanded(&explorer, "src", 1);
+		if (cair_project_explorer_row_count(&explorer) != 3) failed = 1;
+		/* Zed geometry: the guide for "src" is at depth 0 and covers the
+		 * single child row (row 1) from its top to its bottom. */
+		if (cair_project_explorer_guide_count(&explorer) != 1
+			|| !cair_project_explorer_get_guide(&explorer, 0,
+				&guide_depth, &guide_start, &guide_end)
+			|| guide_depth != 0 || guide_start != 1 || guide_end != 1) failed = 1;
+		cair_project_explorer_set_directory_expanded(&explorer, "src", 0);
+		if (cair_project_explorer_row_count(&explorer) != 2) failed = 1;
+		if (cair_project_explorer_guide_count(&explorer) != 0) failed = 1;
 		on_open(&sample_file, &opened);
 		if (!opened) failed = 1;
 		cair_status_bar_set_text(&status, "integration test");
@@ -287,6 +315,7 @@ int main(void) {
 		}
 	}
 	Rshutdown();
+	cair_project_explorer_destroy(&explorer);
 	cair_editor_tabs_destroy(&tabs);
 	if (failed) {
 		fputs("widget integration test failed\n", stderr);

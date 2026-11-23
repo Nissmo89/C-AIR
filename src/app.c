@@ -151,6 +151,7 @@ int cair_app_run(int self_test) {
 		while (Rdraw_frame()) {}
 	}
 	Rshutdown();
+	cair_project_explorer_destroy(&app.explorer);
 	cair_editor_tabs_destroy(&app.tabs);
 	cair_project_tree_destroy(&app.project);
 	return result;
