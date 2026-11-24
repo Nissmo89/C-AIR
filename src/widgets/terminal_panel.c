@@ -79,6 +79,32 @@ static void on_process_output(const char *data, size_t len, void *user_data) {
 	if (post_task) Rtask_post(apply_queued_output, panel);
 }
 
+static int append_input(CairTerminalPanel *panel, const char *text, size_t length, uint16_t columns) {
+	if (!panel || !text || length == 0 || length >= sizeof(panel->input_line) - panel->input_length) return 0;
+	memcpy(panel->input_line + panel->input_length, text, length);
+	panel->input_length += length;
+	panel->input_columns = (uint16_t)(panel->input_columns + columns);
+	panel->input_line[panel->input_length] = '\0';
+	Rwidget_invalidate(panel->canvas);
+	return 1;
+}
+
+static int submit_input(CairTerminalPanel *panel) {
+	char command[sizeof(panel->input_line) + 2];
+	size_t length;
+	if (!panel) return 0;
+	memcpy(command, panel->input_line, panel->input_length);
+	command[panel->input_length] = '\r';
+	command[panel->input_length + 1] = '\n';
+	length = panel->input_length + 2;
+	if (cair_terminal_process_write(&panel->process, command, length) != (int)length) return 0;
+	panel->input_length = 0;
+	panel->input_columns = 0;
+	panel->input_line[0] = '\0';
+	Rwidget_invalidate(panel->canvas);
+	return 1;
+}
+
 /* --------------------------------------------------------------------------
  * Custom widget: measure
  * -------------------------------------------------------------------------- */
@@ -143,10 +169,15 @@ static void on_paint(Rid widget, RPainter *painter, float width, float height,
 				default_fg.r / 255.0f, default_fg.g / 255.0f, default_fg.b / 255.0f, 1.0f);
 	}
 	free(line);
+	if (panel->input_length > 0 && cair_terminal_model_get_cursor(&panel->model, &cursor)) {
+		Rdraw_text(painter, panel->font, CELL_H * 0.8f,
+			cursor.col * cell_w, cursor.row * cell_h, panel->input_line,
+			default_fg.r / 255.0f, default_fg.g / 255.0f, default_fg.b / 255.0f, 1.0f);
+	}
 
 	/* Cursor */
 	if (cair_terminal_model_get_cursor(&panel->model, &cursor) && cursor.visible) {
-		float cx = cursor.col * cell_w;
+		float cx = (cursor.col + panel->input_columns) * cell_w;
 		float cy = cursor.row * cell_h;
 		Rdraw_rect_outline(painter, cx, cy, cell_w, cell_h, 0, 1.5f,
 		                   FG_R, FG_G, FG_B, 0.9f);
@@ -163,6 +194,10 @@ static int on_key(Rid widget, const REvent *ev, void *user_data) {
 
 	(void)widget;
 	if (!panel || !panel->initialized) return R_FALSE;
+	if (ev->type == R_EVENT_MOUSE_DOWN && ev->button == R_MOUSE_LEFT) {
+		Rwidget_focus(panel->canvas);
+		return R_FALSE;
+	}
 	if (ev->type == R_EVENT_MOUSE_WHEEL) {
 		int delta = (int)(-ev->wheel_y * 3.0f);
 		if (delta == 0 && ev->wheel_y != 0.0f) delta = ev->wheel_y < 0.0f ? 1 : -1;
@@ -200,8 +235,7 @@ static int on_key(Rid widget, const REvent *ev, void *user_data) {
 			}
 		}
 		if (len > 0) {
-			cair_terminal_process_write(&panel->process, buf, (size_t)len);
-			return R_TRUE;
+			return append_input(panel, buf, (size_t)len, 1) ? R_TRUE : R_FALSE;
 		}
 		return R_FALSE;
 	}
@@ -209,21 +243,45 @@ static int on_key(Rid widget, const REvent *ev, void *user_data) {
 	if (ev->type != R_EVENT_KEY_DOWN) return R_FALSE;
 
 	switch (ev->key) {
-		case R_KEY_ENTER:     buf[0] = '\r';   len = 1; break;
-		case R_KEY_BACKSPACE: buf[0] = '\x7f'; len = 1; break;
-		case R_KEY_TAB:       buf[0] = '\t';   len = 1; break;
-		case R_KEY_ESCAPE:    buf[0] = '\x1b'; len = 1; break;
-		case R_KEY_UP:    buf[0]='\x1b'; buf[1]='['; buf[2]='A'; len=3; break;
-		case R_KEY_DOWN:  buf[0]='\x1b'; buf[1]='['; buf[2]='B'; len=3; break;
-		case R_KEY_RIGHT: buf[0]='\x1b'; buf[1]='['; buf[2]='C'; len=3; break;
-		case R_KEY_LEFT:  buf[0]='\x1b'; buf[1]='['; buf[2]='D'; len=3; break;
+		case R_KEY_ENTER:
+			return submit_input(panel) ? R_TRUE : R_FALSE;
+		case R_KEY_BACKSPACE:
+			if (panel->input_length > 0) {
+				panel->input_length--;
+				while (panel->input_length > 0 &&
+					((unsigned char)panel->input_line[panel->input_length] & 0xC0u) == 0x80u)
+					panel->input_length--;
+				panel->input_line[panel->input_length] = '\0';
+				if (panel->input_columns > 0) panel->input_columns--;
+				Rwidget_invalidate(panel->canvas);
+				return R_TRUE;
+			}
+			return R_FALSE;
+		case R_KEY_TAB:
+			return append_input(panel, "    ", 4, 4) ? R_TRUE : R_FALSE;
+		case R_KEY_ESCAPE:
+			panel->input_length = 0;
+			panel->input_columns = 0;
+			panel->input_line[0] = '\0';
+			Rwidget_invalidate(panel->canvas);
+			return R_TRUE;
+		case R_KEY_UP:
+		case R_KEY_DOWN:
+		case R_KEY_RIGHT:
+		case R_KEY_LEFT:
+			return R_FALSE;
 		default:
 			/* Ctrl+letter → control code (A=1 … Z=26) */
 			if ((ev->modifiers & R_MOD_CTRL) && !(ev->modifiers & R_MOD_ALT)) {
 				int k = (int)ev->key;
 				if (k >= R_KEY_A && k <= R_KEY_Z) {
-					buf[0] = (char)(k - R_KEY_A + 1);
-					len = 1;
+					if (ev->key == R_KEY_C) {
+						panel->input_length = 0;
+						panel->input_columns = 0;
+						panel->input_line[0] = '\0';
+						Rwidget_invalidate(panel->canvas);
+						return R_TRUE;
+					}
 				}
 			}
 			break;

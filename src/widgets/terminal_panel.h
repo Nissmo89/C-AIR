@@ -21,6 +21,9 @@ typedef struct CairTerminalPanel {
 	char               *output_queue;
 	size_t              output_length;
 	size_t              output_capacity;
+	char                input_line[4096];
+	size_t              input_length;
+	uint16_t            input_columns;
 	float               last_width;
 	float               last_height;
 	int                 output_task_posted;
