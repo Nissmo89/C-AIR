@@ -23,10 +23,14 @@
  *
  * Layout
  * ------
- *   root (VBOX, min-width 210)
+ *   root (VBOX, min-width 210, painted with R_COLOR_PANEL)
  *     |- "PROJECT" label
  *     `- scroll_box (SCROLL_BOX, fill=1)
  *          `- canvas (R_WIDGET_CUSTOM, painted row-by-row)
+ *
+ *   The scanned project root is the first row.  It starts expanded so the
+ *   project contents are visible immediately; clicking its icon or
+ *   double-clicking the row collapses it like any other directory.
  *
  * Interaction
  * -----------
@@ -89,6 +93,14 @@ void cair_project_explorer_set_directory_expanded(CairProjectExplorer *explorer,
 int cair_project_explorer_guide_count(const CairProjectExplorer *explorer);
 int cair_project_explorer_get_guide(const CairProjectExplorer *explorer,
 	int index, int *depth, int *start_row, int *end_row);
+
+/*
+ * Read-only access to the flattened visible rows.  `index` is 0-based; row 0
+ * is the scanned project root.  Returns 1 and fills `node` / `depth` on
+ * success, 0 when the index is out of range.
+ */
+int cair_project_explorer_get_row(const CairProjectExplorer *explorer,
+	int index, const CairProjectNode **node, int *depth);
 
 /*
  * Returns 1 when both folder icon textures were loaded from assets/, 0 when

@@ -92,6 +92,8 @@ typedef struct {
 	int      expanded_count;
 	int      expanded_cap;
 
+	char    *root_path;    /* path of the root row currently shown      */
+
 	Rid      icon_folder;      /* assets/folder.svg, R_INVALID_ID if missing */
 	Rid      icon_folder_open; /* assets/folder_open.svg                     */
 
@@ -327,8 +329,28 @@ static void rebuild_rows(PEState *state)
 	state->selected_row = -1;
 	state->hot_row      = -1;
 
-	if (model && model->root)
-		flatten_children(state, model->root, 0);
+	if (model && model->root) {
+		const CairProjectNode *root = model->root;
+
+		/* The scanned root is the first row, so the panel shows the project
+		 * folder itself at the top instead of starting with its children.
+		 * A new root path (after a rescan) starts expanded; the user can
+		 * still collapse it afterwards. */
+		if (!state->root_path || !root->path
+			|| strcmp(state->root_path, root->path) != 0) {
+			free(state->root_path);
+			state->root_path = pe_strdup(root->path);
+			if (root->path) pe_set_expanded(state, root->path, 1);
+		}
+
+		if (pe_reserve_row(state)) {
+			state->rows[state->row_count].node  = root;
+			state->rows[state->row_count].depth = 0;
+			++state->row_count;
+		}
+		if (pe_is_expanded(state, root->path))
+			flatten_children(state, root, 1);
+	}
 
 	rebuild_guides(state);
 }
@@ -606,6 +628,16 @@ Rid cair_project_explorer_create(CairProjectExplorer *explorer,
 	if (explorer->root == R_INVALID_ID) goto fail;
 	Rpanel_set_spacing(explorer->root, 4.0f);
 	Rwidget_set_min_size(explorer->root, 210.0f, 0.0f);
+	{
+		/* Paint the whole sidebar with the same panel color as the rows.
+		 * Without this the VBOX is transparent and the header and the empty
+		 * area below the tree show the darker window color, leaving the row
+		 * strip as a visibly different shade. */
+		float pr, pg, pb, pa;
+		Rtheme_get_color(R_COLOR_PANEL, &pr, &pg, &pb, &pa);
+		Rwidget_set_color(explorer->root, R_COLOR_PANEL, pr, pg, pb, pa);
+		Rwidget_set_material(explorer->root, R_MATERIAL_SOLID);
+	}
 
 	/* ---- "PROJECT" section header ---------------------------------------- */
 	title = Rlabel_create("PROJECT");
@@ -637,6 +669,7 @@ Rid cair_project_explorer_create(CairProjectExplorer *explorer,
 
 fail:
 	pe_release_icons(state);
+	free(state->root_path);
 	free(state->rows);
 	free(state->guides);
 	free(state);
@@ -701,6 +734,18 @@ int cair_project_explorer_get_guide(const CairProjectExplorer *explorer,
 	return 1;
 }
 
+int cair_project_explorer_get_row(const CairProjectExplorer *explorer,
+	int index, const CairProjectNode **node, int *depth)
+{
+	const PEState *state;
+	if (!explorer) return 0;
+	state = (const PEState *)explorer->_state;
+	if (!state || index < 0 || index >= state->row_count) return 0;
+	if (node)  *node  = state->rows[index].node;
+	if (depth) *depth = state->rows[index].depth;
+	return 1;
+}
+
 int cair_project_explorer_has_icons(const CairProjectExplorer *explorer)
 {
 	const PEState *state;
@@ -722,6 +767,7 @@ void cair_project_explorer_destroy(CairProjectExplorer *explorer)
 	pe_release_icons(state);
 	for (i = 0; i < state->expanded_count; ++i) free(state->expanded[i]);
 	free(state->expanded);
+	free(state->root_path);
 	free(state->rows);
 	free(state->guides);
 	free(state);

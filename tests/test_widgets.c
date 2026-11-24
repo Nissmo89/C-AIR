@@ -19,6 +19,12 @@ static void on_open(const CairProjectNode* node, void* user_data) {
 	if (node && node->path) *opened = 1;
 }
 
+static int color_matches(float a, float b) {
+	float d = a - b;
+	if (d < 0.0f) d = -d;
+	return d < 0.002f;
+}
+
 typedef struct TabObserver {
 	Rid editor;
 	int changes;
@@ -96,6 +102,8 @@ int main(void) {
 	int guide_depth;
 	int guide_start;
 	int guide_end;
+	const CairProjectNode *row_node;
+	int row_depth;
 
 	memset(&sample_file, 0, sizeof(sample_file));
 	memset(&nested_file, 0, sizeof(nested_file));
@@ -157,25 +165,66 @@ int main(void) {
 		Rwidget_add_child(container, status.root);
 		if (!cair_editor_pane_add_toolbar(&editor, find_replace.root)) failed = 1;
 		/* Explorer uses a custom canvas that paints Zed-style indent
-		 * guides.  Directories start collapsed, so only the two top-level
-		 * entries are visible; expanding "src" reveals its child. */
+		 * guides.  The scanned root is the first row and starts expanded,
+		 * so the two top-level entries are visible below it; expanding
+		 * "src" reveals its child. */
 		if (Rwidget_get_type(explorer.canvas) != R_WIDGET_CUSTOM) failed = 1;
-		if (cair_project_explorer_row_count(&explorer) != 2) failed = 1;
-		if (cair_project_explorer_guide_count(&explorer) != 0) failed = 1;
+		if (cair_project_explorer_row_count(&explorer) != 3) failed = 1;
+		/* The whole sidebar paints the panel color, not the darker window
+		 * color, so the header and the empty area match the row strip. */
+		{
+			float pr, pg, pb, pa;
+			float wr, wg, wb, wa;
+			Rtheme_get_color(R_COLOR_PANEL, &pr, &pg, &pb, &pa);
+			Rwidget_get_color(explorer.root, R_COLOR_PANEL, &wr, &wg, &wb, &wa);
+			if (Rwidget_get_material(explorer.root) != R_MATERIAL_SOLID
+				|| !color_matches(pr, wr) || !color_matches(pg, wg)
+				|| !color_matches(pb, wb) || !color_matches(pa, wa)) failed = 1;
+		}
 		/* The folder SVGs in assets/ must be loaded, otherwise the panel
 		 * silently falls back to the old painted chevrons. */
 		if (!cair_project_explorer_has_icons(&explorer)) failed = 1;
-		cair_project_explorer_set_directory_expanded(&explorer, "src", 1);
-		if (cair_project_explorer_row_count(&explorer) != 3) failed = 1;
-		/* Zed geometry: the guide for "src" is at depth 0 and covers the
-		 * single child row (row 1) from its top to its bottom. */
+		/* Row 0 is the project root itself, at depth 0. */
+		if (!cair_project_explorer_get_row(&explorer, 0, &row_node, &row_depth)
+			|| row_node != &root_node || row_depth != 0) failed = 1;
+		if (!cair_project_explorer_get_row(&explorer, 1, &row_node, &row_depth)
+			|| row_node != &sample_dir || row_depth != 1) failed = 1;
+		if (!cair_project_explorer_get_row(&explorer, 2, &row_node, &row_depth)
+			|| row_node != &sample_file || row_depth != 1) failed = 1;
+		/* The root's guide covers its two visible child rows (1 and 2). */
 		if (cair_project_explorer_guide_count(&explorer) != 1
 			|| !cair_project_explorer_get_guide(&explorer, 0,
 				&guide_depth, &guide_start, &guide_end)
-			|| guide_depth != 0 || guide_start != 1 || guide_end != 1) failed = 1;
+			|| guide_depth != 0 || guide_start != 1 || guide_end != 2) failed = 1;
+		cair_project_explorer_set_directory_expanded(&explorer, "src", 1);
+		if (cair_project_explorer_row_count(&explorer) != 4) failed = 1;
+		if (!cair_project_explorer_get_row(&explorer, 2, &row_node, &row_depth)
+			|| row_node != &nested_file || row_depth != 2) failed = 1;
+		/* Zed geometry: the "src" guide at depth 1 covers row 2 only, and
+		 * the root guide at depth 0 now covers rows 1 through 3.  Guides
+		 * are emitted when they close, so the deeper one comes first. */
+		if (cair_project_explorer_guide_count(&explorer) != 2
+			|| !cair_project_explorer_get_guide(&explorer, 0,
+				&guide_depth, &guide_start, &guide_end)
+			|| guide_depth != 1 || guide_start != 2 || guide_end != 2
+			|| !cair_project_explorer_get_guide(&explorer, 1,
+				&guide_depth, &guide_start, &guide_end)
+			|| guide_depth != 0 || guide_start != 1 || guide_end != 3) failed = 1;
 		cair_project_explorer_set_directory_expanded(&explorer, "src", 0);
-		if (cair_project_explorer_row_count(&explorer) != 2) failed = 1;
+		if (cair_project_explorer_row_count(&explorer) != 3) failed = 1;
+		if (cair_project_explorer_guide_count(&explorer) != 1
+			|| !cair_project_explorer_get_guide(&explorer, 0,
+				&guide_depth, &guide_start, &guide_end)
+			|| guide_depth != 0 || guide_start != 1 || guide_end != 2) failed = 1;
+		/* The root row itself can be collapsed; only the root remains. */
+		cair_project_explorer_set_directory_expanded(&explorer, ".", 0);
+		if (cair_project_explorer_row_count(&explorer) != 1) failed = 1;
 		if (cair_project_explorer_guide_count(&explorer) != 0) failed = 1;
+		if (!cair_project_explorer_get_row(&explorer, 0, &row_node, &row_depth)
+			|| row_node != &root_node || row_depth != 0) failed = 1;
+		cair_project_explorer_set_directory_expanded(&explorer, ".", 1);
+		if (cair_project_explorer_row_count(&explorer) != 3) failed = 1;
+		if (cair_project_explorer_guide_count(&explorer) != 1) failed = 1;
 		on_open(&sample_file, &opened);
 		if (!opened) failed = 1;
 		cair_status_bar_set_text(&status, "integration test");
