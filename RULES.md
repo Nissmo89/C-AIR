@@ -72,3 +72,6 @@ tests. Enable the sanitizer build with
 - Keep behavior and test names specific enough that a failed CTest result points
   to the affected subsystem.
 - Update `BUILDING_C_APPS.md` when build prerequisites or commands change.
+- Follow all commit documentation and message requirements specified in `RULE.md`.
+  Every commit must include full context, problem explanation, Q&A, and a step-by-step
+  walkthrough.
