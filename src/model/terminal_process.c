@@ -86,7 +86,8 @@ int cair_terminal_process_start(CairTerminalProcess *proc,
 
 	memset(&sa, 0, sizeof(sa));
 	sa.nLength = sizeof(sa);
-	sa.bInheritHandle = TRUE;
+	/* ConPTY communication handles stay private to the host process. */
+	sa.bInheritHandle = FALSE;
 
 	if (!CreatePipe(&in_read, &in_write, &sa, 0)) return 0;
 	if (!CreatePipe(&out_read, &out_write, &sa, 0)) {
@@ -95,12 +96,12 @@ int cair_terminal_process_start(CairTerminalProcess *proc,
 		return 0;
 	}
 
-	/* Try ConPTY if supported */
-	/* Tests and constrained hosts can select the portable redirected-pipe path. */
+	/* ConPTY remains opt-in until its output routing is covered on this Windows build. */
 	{
-		char _fp[4] = {0};
-		int force_pipes = GetEnvironmentVariableA("CAIR_TERMINAL_FORCE_PIPES", _fp, sizeof(_fp)) > 0;
-		if (!force_pipes &&
+		char conpty_setting[4] = {0};
+		int use_conpty = GetEnvironmentVariableA("CAIR_TERMINAL_USE_CONPTY", conpty_setting,
+			sizeof(conpty_setting)) > 0;
+		if (use_conpty &&
 		    s_CreatePseudoConsole && s_ResizePseudoConsole && s_ClosePseudoConsole) {
 			COORD size;
 			size.X = (SHORT)(cols > 0 ? cols : 80);
@@ -121,7 +122,7 @@ int cair_terminal_process_start(CairTerminalProcess *proc,
 					/* STARTUPINFOEX requires cb to include the attribute-list field. */
 					siEx.StartupInfo.cb = sizeof(siEx);
 					BOOL created = attr_ok && CreateProcessA(NULL, cmdline_buf, NULL, NULL, FALSE,
-						EXTENDED_STARTUPINFO_PRESENT | CREATE_NO_WINDOW, NULL, working_dir, &siEx.StartupInfo, &pi);
+						EXTENDED_STARTUPINFO_PRESENT, NULL, working_dir, &siEx.StartupInfo, &pi);
 
 					DeleteProcThreadAttributeList(siEx.lpAttributeList);
 					free(siEx.lpAttributeList);
@@ -166,8 +167,16 @@ int cair_terminal_process_start(CairTerminalProcess *proc,
 	}
 
 	/* Fallback: standard pipe redirection */
-	SetHandleInformation(in_write, HANDLE_FLAG_INHERIT, 0);
-	SetHandleInformation(out_read, HANDLE_FLAG_INHERIT, 0);
+	if (!SetHandleInformation(in_read, HANDLE_FLAG_INHERIT, HANDLE_FLAG_INHERIT) ||
+	    !SetHandleInformation(out_write, HANDLE_FLAG_INHERIT, HANDLE_FLAG_INHERIT) ||
+	    !SetHandleInformation(in_write, HANDLE_FLAG_INHERIT, 0) ||
+	    !SetHandleInformation(out_read, HANDLE_FLAG_INHERIT, 0)) {
+		CloseHandle(in_read);
+		CloseHandle(in_write);
+		CloseHandle(out_read);
+		CloseHandle(out_write);
+		return 0;
+	}
 
 	STARTUPINFOA si;
 	memset(&si, 0, sizeof(si));

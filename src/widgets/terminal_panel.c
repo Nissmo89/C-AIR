@@ -96,10 +96,11 @@ static void on_paint(Rid widget, RPainter *painter, float width, float height,
                      void *user_data) {
 	CairTerminalPanel *panel = (CairTerminalPanel *)user_data;
 	uint16_t row, col, cols, rows;
-	CairTerminalCell cell;
 	CairTerminalCursor cursor;
-	char glyph[33];
+	CairTerminalColor default_fg, default_bg;
+	char *line;
 	float cell_w, cell_h;
+	size_t line_capacity;
 
 	(void)widget;
 
@@ -111,53 +112,66 @@ static void on_paint(Rid widget, RPainter *painter, float width, float height,
 		           "Terminal — press Ctrl+` to open", FG_R, FG_G, FG_B, 0.5f);
 		return;
 	}
+	if (!cair_terminal_model_get_dimensions(&panel->model, &cols, &rows)) return;
+	line_capacity = (size_t)cols * 32u + 1u;
+	line = (char *)malloc(line_capacity);
+	if (!line) return;
 
 	/* Sync the render snapshot */
 	cair_terminal_model_update(&panel->model);
 	cair_terminal_model_get_dimensions(&panel->model, &cols, &rows);
+	cair_terminal_model_get_default_colors(&panel->model, &default_fg, &default_bg);
+	Rdraw_rect(painter, 0, 0, width, height, 0,
+		default_bg.r / 255.0f, default_bg.g / 255.0f, default_bg.b / 255.0f, 1.0f);
 
 	cell_w = (cols > 0) ? (width  / (float)cols) : CELL_W;
 	cell_h = (rows > 0) ? (height / (float)rows) : CELL_H;
 
 	for (row = 0; row < rows; ++row) {
+		size_t used = 0;
+		uint16_t run_col = 0;
+		int run_active = 0;
+		float run_r = 0.0f, run_g = 0.0f, run_b = 0.0f;
 		for (col = 0; col < cols; ++col) {
+			CairTerminalCell cell;
 			float x = col * cell_w;
-			float y = row * cell_h;
-			float fr, fg, fb, br, bg_b, bb;
+			float fr, fg, fb;
+			if (!cair_terminal_model_get_cell(&panel->model, row, col, &cell)) continue;
+			if (cell.has_bg)
+				Rdraw_rect(painter, x, row * cell_h, cell_w, cell_h, 0,
+					cell.bg.r / 255.0f, cell.bg.g / 255.0f, cell.bg.b / 255.0f, 1.0f);
+			if (cell.selected)
+				Rdraw_rect(painter, x, row * cell_h, cell_w, cell_h, 0, 0.25f, 0.45f, 0.75f, 0.45f);
 
-			if (!cair_terminal_model_get_cell(&panel->model, row, col, &cell))
-				continue;
-
-			/* Background cell */
-			if (cell.has_bg) {
-				br  = cell.bg.r / 255.0f;
-				bg_b = cell.bg.g / 255.0f;
-				bb  = cell.bg.b / 255.0f;
-			} else {
-				br = BG_R; bg_b = BG_G; bb = BG_B;
+			fr = cell.has_fg ? cell.fg.r / 255.0f : default_fg.r / 255.0f;
+			fg = cell.has_fg ? cell.fg.g / 255.0f : default_fg.g / 255.0f;
+			fb = cell.has_fg ? cell.fg.b / 255.0f : default_fg.b / 255.0f;
+			if (run_active && (fr != run_r || fg != run_g || fb != run_b)) {
+				line[used] = '\0';
+				Rdraw_text(painter, panel->font, 0, run_col * cell_w, row * cell_h,
+					line, run_r, run_g, run_b, 1.0f);
+				used = 0;
+				run_active = 0;
 			}
-			if (cell.selected) {
-				br = 0.25f; bg_b = 0.45f; bb = 0.75f;
+			if (!run_active) {
+				run_col = col;
+				run_r = fr; run_g = fg; run_b = fb;
+				run_active = 1;
 			}
-			Rdraw_rect(painter, x, y, cell_w, cell_h, 0, br, bg_b, bb, 1.0f);
-
-			/* Foreground text */
-			if (cell.text_len == 0 || cell.text[0] == ' ' || cell.text[0] == '\0')
-				continue;
-
-			if (cell.has_fg) {
-				fr = cell.fg.r / 255.0f;
-				fg = cell.fg.g / 255.0f;
-				fb = cell.fg.b / 255.0f;
-			} else {
-				fr = FG_R; fg = FG_G; fb = FG_B;
+			if (cell.text_len > 0 && cell.text_len < line_capacity - used) {
+				memcpy(line + used, cell.text, cell.text_len);
+				used += cell.text_len;
+			} else if (used + 1 < line_capacity) {
+				line[used++] = ' ';
 			}
-
-			memcpy(glyph, cell.text, cell.text_len);
-			glyph[cell.text_len] = '\0';
-			Rdraw_text(painter, panel->font, 0, x, y, glyph, fr, fg, fb, 1.0f);
+		}
+		if (run_active && used > 0) {
+			line[used] = '\0';
+			Rdraw_text(painter, panel->font, 0, run_col * cell_w, row * cell_h,
+				line, run_r, run_g, run_b, 1.0f);
 		}
 	}
+	free(line);
 
 	/* Cursor */
 	if (cair_terminal_model_get_cursor(&panel->model, &cursor) && cursor.visible) {

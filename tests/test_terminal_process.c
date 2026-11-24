@@ -6,7 +6,6 @@
 
 #include "model/terminal_process.h"
 
-
 typedef struct OutputCollector {
 	char buffer[2048];
 	size_t len;
@@ -47,11 +46,13 @@ static void test_process_echo(void) {
 	InitializeCriticalSection(&collector.lock);
 	SetEnvironmentVariableA("CAIR_TERMINAL_FORCE_PIPES", "1");
 
-	/* Use a non-interactive, single-shot invocation so cmd.exe prints the
-	 * output and exits immediately — no stdin pipe ambiguity, no prompt race. */
-	assert(cair_terminal_process_start(&proc,
-	    "cmd.exe /C echo cair_term_proc_test", NULL,
+	assert(cair_terminal_process_start(&proc, "cmd.exe /Q", NULL,
 	    80, 24, on_test_output, &collector));
+	Sleep(150);
+	{
+		static const char command[] = "echo cair_term_proc_test\r\n";
+		assert(cair_terminal_process_write(&proc, command, sizeof(command) - 1) == (int)(sizeof(command) - 1));
+	}
 
 	/* Wait up to 3 seconds for output to arrive */
 	while (attempts++ < 30) {
@@ -69,8 +70,7 @@ static void test_process_echo(void) {
 	assert(strstr(collector.buffer, "cair_term_proc_test") != NULL);
 	LeaveCriticalSection(&collector.lock);
 
-	/* resize after a short-lived /C process may return 0 (already exited); just check no crash */
-	cair_terminal_process_resize(&proc, 100, 30);
+	assert(cair_terminal_process_resize(&proc, 100, 30));
 
 	cair_terminal_process_destroy(&proc);
 	assert(!cair_terminal_process_is_running(&proc));
