@@ -24,6 +24,7 @@ add_library(cair_ui STATIC
 	src/app.c
 	src/model/project_tree.c
 	src/model/terminal_model.c
+	src/model/terminal_process.c
 	src/widgets/project_explorer.c
 	src/widgets/breadcrumb_bar.c
 	src/widgets/editor_pane.c
@@ -31,6 +32,7 @@ add_library(cair_ui STATIC
 	src/widgets/main_menu.c
 	src/widgets/find_replace_bar.c
 	src/widgets/status_bar.c
+	src/widgets/terminal_panel.c
 	src/search/find_replace.c
 )
 target_include_directories(cair_ui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -69,6 +71,11 @@ if(BUILD_TESTING)
 	target_link_libraries(cair_terminal_model_tests PRIVATE ghostty-vt::ghostty-vt-static)
 	cair_enable_warnings(cair_terminal_model_tests)
 	add_test(NAME unit_terminal_model COMMAND cair_terminal_model_tests)
+
+	add_executable(cair_terminal_process_tests tests/test_terminal_process.c src/model/terminal_process.c)
+	target_include_directories(cair_terminal_process_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+	cair_enable_warnings(cair_terminal_process_tests)
+	add_test(NAME unit_terminal_process COMMAND cair_terminal_process_tests)
 
 	add_executable(cair_widget_tests tests/test_widgets.c)
 	target_link_libraries(cair_widget_tests PRIVATE cair_ui)

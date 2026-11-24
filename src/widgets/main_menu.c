@@ -41,6 +41,11 @@ static void toggle_explorer_clicked(Rid item, void* user_data) {
 	dispatch((CairMainMenu*)user_data, CAIR_MAIN_MENU_TOGGLE_EXPLORER);
 }
 
+static void toggle_terminal_clicked(Rid item, void* user_data) {
+	(void)item;
+	dispatch((CairMainMenu*)user_data, CAIR_MAIN_MENU_TOGGLE_TERMINAL);
+}
+
 static void about_clicked(Rid item, void* user_data) {
 	(void)item;
 	dispatch((CairMainMenu*)user_data, CAIR_MAIN_MENU_ABOUT);
@@ -83,6 +88,7 @@ Rid cair_main_menu_create(CairMainMenu* menu, CairMainMenuActionCallback on_acti
 		|| add_item(edit, "Find...", R_KEY_F, R_MOD_CTRL, find_clicked, menu) == R_INVALID_ID
 		|| add_item(edit, "Find and Replace...", R_KEY_H, R_MOD_CTRL, find_replace_clicked, menu) == R_INVALID_ID
 		|| add_item(view, "Toggle Project Explorer", R_KEY_UNKNOWN, 0, toggle_explorer_clicked, menu) == R_INVALID_ID
+		|| add_item(view, "Toggle Terminal", R_KEY_GRAVE, R_MOD_CTRL, toggle_terminal_clicked, menu) == R_INVALID_ID
 		|| add_item(help, "About C-AIR", R_KEY_UNKNOWN, 0, about_clicked, menu) == R_INVALID_ID) return R_INVALID_ID;
 	return menu->root;
 }

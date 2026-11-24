@@ -9,6 +9,7 @@
 #include "widgets/main_menu.h"
 #include "widgets/project_explorer.h"
 #include "widgets/status_bar.h"
+#include "widgets/terminal_panel.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -87,6 +88,7 @@ int main(void) {
 	CairMainMenu menu;
 	CairFindReplaceBar find_replace;
 	CairStatusBar status;
+	CairTerminalPanel terminal;
 	Rid container;
 	Rid tab_editor;
 	Rid second_tab_editor;
@@ -116,6 +118,10 @@ int main(void) {
 	memset(&menu, 0, sizeof(menu));
 	memset(&find_replace, 0, sizeof(find_replace));
 	memset(&status, 0, sizeof(status));
+	memset(&terminal, 0, sizeof(terminal));
+	terminal.root = R_INVALID_ID;
+	terminal.header = R_INVALID_ID;
+	terminal.canvas = R_INVALID_ID;
 	observer.editor = R_INVALID_ID;
 	observer.changes = 0;
 	sample_file.name = "example.c";
@@ -148,10 +154,12 @@ int main(void) {
 	if (cair_find_replace_bar_create(&find_replace, R_INVALID_ID) == R_INVALID_ID) failed = 1;
 	if (find_replace.root != R_INVALID_ID) cair_find_replace_bar_set_editor(&find_replace, editor.editor);
 	if (cair_status_bar_create(&status) == R_INVALID_ID) failed = 1;
+	if (cair_terminal_panel_create(&terminal) == R_INVALID_ID) failed = 1;
 	widgets_ready = container != R_INVALID_ID && explorer.root != R_INVALID_ID && explorer.canvas != R_INVALID_ID
 		&& editor.root != R_INVALID_ID && editor.editor != R_INVALID_ID && tabs.root != R_INVALID_ID
 		&& tabs.tab_view != R_INVALID_ID && menu.root != R_INVALID_ID && find_replace.root != R_INVALID_ID
-		&& status.root != R_INVALID_ID && status.label != R_INVALID_ID;
+		&& status.root != R_INVALID_ID && status.label != R_INVALID_ID
+		&& terminal.root != R_INVALID_ID && terminal.canvas != R_INVALID_ID;
 	if (!widgets_ready) failed = 1;
 	if (widgets_ready) {
 		if (Rwidget_get_visibility(editor.breadcrumb) != R_COLLAPSED
@@ -163,6 +171,9 @@ int main(void) {
 		Rwidget_add_child(container, editor.root);
 		Rwidget_add_child(container, tabs.root);
 		Rwidget_add_child(container, status.root);
+		Rwidget_add_child(container, terminal.root);
+		if (Rwidget_get_type(terminal.canvas) != R_WIDGET_CUSTOM
+			|| Rwidget_get_visibility(terminal.root) != R_COLLAPSED) failed = 1;
 		if (!cair_editor_pane_add_toolbar(&editor, find_replace.root)) failed = 1;
 		/* Explorer uses a custom canvas that paints Zed-style indent
 		 * guides.  The scanned root is the first row and starts expanded,
@@ -366,6 +377,7 @@ int main(void) {
 			}
 		}
 	}
+	cair_terminal_panel_destroy(&terminal);
 	Rshutdown();
 	cair_project_explorer_destroy(&explorer);
 	cair_editor_tabs_destroy(&tabs);

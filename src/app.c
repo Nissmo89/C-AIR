@@ -8,6 +8,7 @@
 #include "widgets/main_menu.h"
 #include "widgets/project_explorer.h"
 #include "widgets/status_bar.h"
+#include "widgets/terminal_panel.h"
 
 #include <Raven.h>
 #include <string.h>
@@ -20,6 +21,8 @@ typedef struct CairApp {
 	CairMainMenu main_menu;
 	CairFindReplaceBar find_replace;
 	CairStatusBar status;
+	CairTerminalPanel terminal;
+	Rid right_splitter;  /* vertical splitter: editor on top, terminal below */
 } CairApp;
 
 static CairApp app;
@@ -85,7 +88,11 @@ static void main_menu_action(CairMainMenuAction action, void* user_data) {
 			break;
 		case CAIR_MAIN_MENU_TOGGLE_EXPLORER:
 			Rwidget_set_visibility(state->explorer.root,
-				Rwidget_get_visibility(state->explorer.root) == R_VISIBLE ? R_COLLAPSED : R_VISIBLE);
+				Rwidget_get_visibility(state->explorer.root) == R_VISIBLE
+				? R_COLLAPSED : R_VISIBLE);
+			break;
+		case CAIR_MAIN_MENU_TOGGLE_TERMINAL:
+			cair_terminal_panel_toggle(&state->terminal);
 			break;
 		case CAIR_MAIN_MENU_ABOUT:
 			Rmessage_box(state->window, "About C-AIR", "A lightweight C code editor.", R_MESSAGE_OK);
@@ -99,58 +106,99 @@ static int create_window(void) {
 	Rid outer;
 	Rid header;
 	Rid menu_bar;
-	Rid splitter;
+	Rid h_splitter;   /* left: explorer  |  right: v_splitter */
+	Rid v_splitter;   /* top:  editor    |  bottom: terminal  */
 	Rid explorer;
 	Rid editor;
 	Rid find_replace;
+	Rid terminal;
 	Rid status;
+
 	if (length == 0 || length >= sizeof(root_path)) return 0;
 	if (!cair_project_tree_scan(&app.project, root_path)) return 0;
 
 	app.window = Rwindow_create("C-AIR", 1120, 720, R_WINDOW_CUSTOM_HEADER);
 	if (app.window == R_INVALID_ID) return 0;
-	outer = Rwidget_create(R_WIDGET_VBOX);
-	header = Rheader_bar_create(NULL);
+
+	outer    = Rwidget_create(R_WIDGET_VBOX);
+	header   = Rheader_bar_create(NULL);
 	menu_bar = cair_main_menu_create(&app.main_menu, main_menu_action, &app);
-	splitter = Rwidget_create(R_WIDGET_SPLITTER);
-	if (outer == R_INVALID_ID || header == R_INVALID_ID || menu_bar == R_INVALID_ID || splitter == R_INVALID_ID) return 0;
+	h_splitter = Rwidget_create(R_WIDGET_SPLITTER);
+	v_splitter = Rwidget_create(R_WIDGET_SPLITTER);
+	if (outer == R_INVALID_ID || header == R_INVALID_ID ||
+	    menu_bar == R_INVALID_ID ||
+	    h_splitter == R_INVALID_ID || v_splitter == R_INVALID_ID) return 0;
+
+	app.right_splitter = v_splitter;
+
+	/* Header */
 	Rwidget_add_child(header, menu_bar);
 	Rwidget_add_child(outer, header);
-	Rsplitter_set_orientation(splitter, R_HORIZONTAL);
-	Rsplitter_set_min_pane_size(splitter, 180.0f);
-	Rslot_set_fill(splitter, 1.0f);
-	Rwidget_add_child(outer, splitter);
+
+	/* Outer horizontal splitter fills the remaining space */
+	Rsplitter_set_orientation(h_splitter, R_HORIZONTAL);
+	Rsplitter_set_min_pane_size(h_splitter, 180.0f);
+	Rslot_set_fill(h_splitter, 1.0f);
+	Rwidget_add_child(outer, h_splitter);
+
+	/* Left pane: project explorer */
 	explorer = cair_project_explorer_create(&app.explorer, &app.project, open_file, &app);
+	if (explorer == R_INVALID_ID) return 0;
+	Rslot_set_fill(explorer, 1.0f);
+	Rwidget_add_child(h_splitter, explorer);
+
+	/* Right pane: vertical splitter (editor top / terminal bottom) */
+	Rsplitter_set_orientation(v_splitter, R_VERTICAL);
+	Rsplitter_set_min_pane_size(v_splitter, 60.0f);
+	Rslot_set_fill(v_splitter, 3.0f);
+	Rwidget_add_child(h_splitter, v_splitter);
+
+	/* Editor tabs (top of vertical splitter) */
 	editor = cair_editor_tabs_create(&app.tabs, editor_changed, &app);
 	if (editor == R_INVALID_ID) return 0;
-	find_replace = cair_find_replace_bar_create(&app.find_replace, cair_editor_tabs_get_active_editor(&app.tabs));
+	find_replace = cair_find_replace_bar_create(&app.find_replace,
+	    cair_editor_tabs_get_active_editor(&app.tabs));
 	status = cair_status_bar_create(&app.status);
-	if (explorer == R_INVALID_ID || editor == R_INVALID_ID || find_replace == R_INVALID_ID || status == R_INVALID_ID) return 0;
+	if (find_replace == R_INVALID_ID || status == R_INVALID_ID) return 0;
 	if (!cair_editor_tabs_add_toolbar(&app.tabs, find_replace)) return 0;
-	Rslot_set_fill(explorer, 1.0f);
-	Rwidget_add_child(splitter, explorer);
 	Rslot_set_fill(editor, 3.0f);
-	Rwidget_add_child(splitter, editor);
+	Rwidget_add_child(v_splitter, editor);
+
+	/* Terminal panel (bottom of vertical splitter, initially collapsed) */
+	terminal = cair_terminal_panel_create(&app.terminal);
+	if (terminal == R_INVALID_ID) return 0;
+	Rslot_set_fill(terminal, 1.0f);
+	Rwidget_add_child(v_splitter, terminal);
+
+	/* Status bar at the very bottom */
 	Rwidget_add_child(outer, status);
+
 	Rwindow_set_content(app.window, outer);
 	cair_find_replace_bar_register_shortcuts(&app.find_replace, app.window);
+
+	/* Ctrl+` shortcut also handled through the menu item — no extra binding needed */
+
 	return 1;
 }
 
 int cair_app_run(int self_test) {
 	int result = 0;
 	if (!Rinit(self_test ? R_BACKEND_NULL : R_BACKEND_VULKAN)) return 1;
-	/* Keep caret movement immediate; Raven currently exposes this globally. */
 	Rset_animations_enabled(R_FALSE);
 	memset(&app, 0, sizeof(app));
 	app.find_replace.root = R_INVALID_ID;
 	app.find_replace.editor = R_INVALID_ID;
+	app.terminal.root   = R_INVALID_ID;
+	app.terminal.canvas = R_INVALID_ID;
+	app.terminal.header = R_INVALID_ID;
 	if (!create_window()) {
 		result = 1;
 	} else if (!self_test) {
 		while (Rdraw_frame()) {}
 	}
+	cair_terminal_panel_stop(&app.terminal);
 	Rshutdown();
+	cair_terminal_panel_destroy(&app.terminal);
 	cair_project_explorer_destroy(&app.explorer);
 	cair_editor_tabs_destroy(&app.tabs);
 	cair_project_tree_destroy(&app.project);
