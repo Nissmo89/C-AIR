@@ -13,12 +13,22 @@ if not exist "%RAVEN_SOURCE_DIR%\CMakeLists.txt" (
 	exit /b 1
 )
 
-for /f %%I in ('powershell -NoProfile -Command "Get-Date -Format yyyyMMdd-HHmmss-fff"') do set "CAIR_OUTPUT_NAME=cair-%%I"
-if not defined CAIR_OUTPUT_NAME exit /b 1
+rem Always produce a single, predictable executable: build\bin\C-AIR.exe.
+set "CAIR_OUTPUT_NAME=C-AIR"
 
-powershell -NoProfile -Command "if (Test-Path -LiteralPath '.\build') { Get-ChildItem -Path '.\build' -Exclude 'raven-install' | ForEach-Object { try { Remove-Item -LiteralPath $_.FullName -Recurse -Force -ErrorAction Stop } catch {} } }"
+rem Remove everything under .\build except the Raven install so stale binaries
+rem from earlier builds can never be picked up by mistake. The executables are
+rem deleted first so a locked binary is reported by name instead of hiding behind
+rem the directory it lives in. A running C-AIR.exe keeps its file locked.
+powershell -NoProfile -Command "$locked = @(); if (Test-Path -LiteralPath '.\build\bin') { Get-ChildItem -LiteralPath '.\build\bin' -Force -File | ForEach-Object { $path = $_.FullName; try { Remove-Item -LiteralPath $path -Force -ErrorAction Stop } catch { $locked += $path } } }; if ($locked.Count -gt 0) { $locked | ForEach-Object { Write-Host ('Could not delete ' + $_) }; exit 1 }"
 if errorlevel 1 (
-	echo Could not remove .\build\. Close any running C-AIR editor and retry.
+	echo Close every running C-AIR window and retry.
+	exit /b 1
+)
+
+powershell -NoProfile -Command "$locked = @(); if (Test-Path -LiteralPath '.\build') { Get-ChildItem -LiteralPath '.\build' -Force | Where-Object { $_.Name -ne 'raven-install' } | ForEach-Object { $path = $_.FullName; try { Remove-Item -LiteralPath $path -Recurse -Force -ErrorAction Stop } catch { $locked += $path } } }; if ($locked.Count -gt 0) { $locked | ForEach-Object { Write-Host ('Could not delete ' + $_) }; exit 1 }"
+if errorlevel 1 (
+	echo Could not clean .\build\. Close every running C-AIR window and retry.
 	exit /b 1
 )
 

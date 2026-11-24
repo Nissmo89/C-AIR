@@ -254,13 +254,14 @@ Running `build.bat` configures and builds Raven in its dedicated
 C-AIR tests. Raven's optional examples, tests, tools, and web component are
 disabled in this workflow.
 
-Each C-AIR build gets a timestamped executable name in `build/bin`. Close any
-running C-AIR application before running the script because it removes the
-C-AIR `build/` folder, and Windows will not delete a running executable.
-Raven's dedicated build directory is kept for incremental builds. The local
-install and C-AIR outputs are under `build/`, which is recreated each run. A
-plain CMake build uses `build/bin/cair.exe` unless you set `CAIR_OUTPUT_NAME`
-when configuring.
+Each C-AIR build produces a single, stable executable at `build/bin/C-AIR.exe`.
+The script deletes the previous build outputs before compiling, so an older
+binary can never be launched by mistake. Close any running C-AIR application
+before running the script because it removes the C-AIR `build/` folder, and
+Windows will not delete a running executable. Raven's dedicated build directory
+is kept for incremental builds. The local install and C-AIR outputs are under
+`build/`, which is recreated each run. A plain CMake build uses
+`build/bin/C-AIR.exe` unless you set `CAIR_OUTPUT_NAME` when configuring.
 
 ---
 

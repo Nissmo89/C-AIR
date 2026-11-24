@@ -40,7 +40,7 @@ target_link_libraries(cair_ui PUBLIC raven::raven uuid ghostty-vt::ghostty-vt-st
 
 add_executable(cair WIN32 main.c)
 target_link_libraries(cair PRIVATE cair_ui)
-set(CAIR_OUTPUT_NAME "cair" CACHE STRING "Name of the built C-AIR executable")
+set(CAIR_OUTPUT_NAME "C-AIR" CACHE STRING "Name of the built C-AIR executable")
 set_target_properties(cair PROPERTIES
 	OUTPUT_NAME "${CAIR_OUTPUT_NAME}"
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
