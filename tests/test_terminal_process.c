@@ -46,9 +46,20 @@ static void test_process_echo(void) {
 	InitializeCriticalSection(&collector.lock);
 	SetEnvironmentVariableA("CAIR_TERMINAL_FORCE_PIPES", "1");
 
-	assert(cair_terminal_process_start(&proc, "cmd.exe /Q", NULL,
+	assert(cair_terminal_process_start(&proc, NULL, NULL,
 	    80, 24, on_test_output, &collector));
-	Sleep(150);
+	{
+		int waited = 0;
+		int got_prompt;
+		do {
+			Sleep(50);
+			waited += 50;
+			EnterCriticalSection(&collector.lock);
+			got_prompt = collector.len > 0;
+			LeaveCriticalSection(&collector.lock);
+		} while (!got_prompt && waited < 2000);
+		assert(got_prompt);
+	}
 	{
 		static const char command[] = "echo cair_term_proc_test\r\n";
 		assert(cair_terminal_process_write(&proc, command, sizeof(command) - 1) == (int)(sizeof(command) - 1));

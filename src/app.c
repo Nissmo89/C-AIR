@@ -174,6 +174,9 @@ static int create_window(void) {
 	Rwidget_add_child(outer, status);
 
 	Rwindow_set_content(app.window, outer);
+	/* Open the integrated command prompt with the app so users see a live
+	 * terminal immediately; the View menu can still hide and restore it. */
+	cair_terminal_panel_show(&app.terminal);
 	cair_find_replace_bar_register_shortcuts(&app.find_replace, app.window);
 
 	/* Ctrl+` shortcut also handled through the menu item — no extra binding needed */

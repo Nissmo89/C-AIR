@@ -128,48 +128,19 @@ static void on_paint(Rid widget, RPainter *painter, float width, float height,
 	cell_h = (rows > 0) ? (height / (float)rows) : CELL_H;
 
 	for (row = 0; row < rows; ++row) {
-		size_t used = 0;
-		uint16_t run_col = 0;
-		int run_active = 0;
-		float run_r = 0.0f, run_g = 0.0f, run_b = 0.0f;
 		for (col = 0; col < cols; ++col) {
 			CairTerminalCell cell;
 			float x = col * cell_w;
-			float fr, fg, fb;
 			if (!cair_terminal_model_get_cell(&panel->model, row, col, &cell)) continue;
 			if (cell.has_bg)
 				Rdraw_rect(painter, x, row * cell_h, cell_w, cell_h, 0,
 					cell.bg.r / 255.0f, cell.bg.g / 255.0f, cell.bg.b / 255.0f, 1.0f);
 			if (cell.selected)
 				Rdraw_rect(painter, x, row * cell_h, cell_w, cell_h, 0, 0.25f, 0.45f, 0.75f, 0.45f);
-
-			fr = cell.has_fg ? cell.fg.r / 255.0f : default_fg.r / 255.0f;
-			fg = cell.has_fg ? cell.fg.g / 255.0f : default_fg.g / 255.0f;
-			fb = cell.has_fg ? cell.fg.b / 255.0f : default_fg.b / 255.0f;
-			if (run_active && (fr != run_r || fg != run_g || fb != run_b)) {
-				line[used] = '\0';
-				Rdraw_text(painter, panel->font, 0, run_col * cell_w, row * cell_h,
-					line, run_r, run_g, run_b, 1.0f);
-				used = 0;
-				run_active = 0;
-			}
-			if (!run_active) {
-				run_col = col;
-				run_r = fr; run_g = fg; run_b = fb;
-				run_active = 1;
-			}
-			if (cell.text_len > 0 && cell.text_len < line_capacity - used) {
-				memcpy(line + used, cell.text, cell.text_len);
-				used += cell.text_len;
-			} else if (used + 1 < line_capacity) {
-				line[used++] = ' ';
-			}
 		}
-		if (run_active && used > 0) {
-			line[used] = '\0';
-			Rdraw_text(painter, panel->font, 0, run_col * cell_w, row * cell_h,
-				line, run_r, run_g, run_b, 1.0f);
-		}
+		if (cair_terminal_model_read_row_text(&panel->model, row, line, line_capacity) > 0)
+			Rdraw_text(painter, panel->font, CELL_H * 0.8f, 0, row * cell_h, line,
+				default_fg.r / 255.0f, default_fg.g / 255.0f, default_fg.b / 255.0f, 1.0f);
 	}
 	free(line);
 
