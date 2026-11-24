@@ -162,6 +162,9 @@ int main(void) {
 		if (Rwidget_get_type(explorer.canvas) != R_WIDGET_CUSTOM) failed = 1;
 		if (cair_project_explorer_row_count(&explorer) != 2) failed = 1;
 		if (cair_project_explorer_guide_count(&explorer) != 0) failed = 1;
+		/* The folder SVGs in assets/ must be loaded, otherwise the panel
+		 * silently falls back to the old painted chevrons. */
+		if (!cair_project_explorer_has_icons(&explorer)) failed = 1;
 		cair_project_explorer_set_directory_expanded(&explorer, "src", 1);
 		if (cair_project_explorer_row_count(&explorer) != 3) failed = 1;
 		/* Zed geometry: the guide for "src" is at depth 0 and covers the

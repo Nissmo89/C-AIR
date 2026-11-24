@@ -19,20 +19,22 @@
  *
  * A guide at stack level `d` is the line for the children of a directory at
  * depth `d`.  It is painted as a 1 px vertical quad at
- * `x = left_pad + d * indent + indent / 2` (the directory's chevron column),
+ * `x = left_pad + d * indent + indent / 2` (the directory's icon column),
  * from the top of its first child row to the bottom of its last visible
  * descendant row.  That is exactly the requested behaviour: every expanded
  * folder draws a line on the left of its children, down to its last child.
  *
  * The visible rows are flattened here instead of using Raven's tree view so
- * that the guide lines, chevrons and labels can be painted in one pass.  The
- * explorer keeps its own collapsed/expanded set (keyed by path, so it survives
- * a model rescan); directories start collapsed like the previous tree view.
+ * that the guide lines, folder icons and labels can be painted in one pass.
+ * The explorer keeps its own collapsed/expanded set (keyed by path, so it
+ * survives a model rescan); directories start collapsed like the previous
+ * tree view.
  */
 
 #include "widgets/project_explorer.h"
 
 #include <Raven.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -44,9 +46,14 @@
 #define PE_LEFT_PAD       8.0f   /* left gutter before the depth-0 column      */
 #define PE_GUIDE_W        1.0f   /* guide line width (Zed paints px(1.))       */
 #define PE_FONT_SIZE     13.0f   /* row label size                             */
-#define PE_CHEVRON_HALF   3.5f   /* half-size of the expand chevron            */
+#define PE_CHEVRON_HALF   3.5f   /* half-size of the fallback chevron          */
+#define PE_ICON_SIZE     16.0f   /* folder.svg / folder_open.svg viewBox       */
 #define PE_MAX_ROWS    8192      /* hard cap, mirrors the model's own cap      */
 #define PE_MAX_DEPTH     64      /* guard for malformed models                 */
+
+/* Asset names relative to the project's assets/ directory. */
+#define PE_ICON_FOLDER      "folder.svg"
+#define PE_ICON_FOLDER_OPEN "folder_open.svg"
 
 /* ---------------------------------------------------------------------------
  * Per-row entry built by the DFS flatten pass
@@ -85,6 +92,9 @@ typedef struct {
 	int      expanded_count;
 	int      expanded_cap;
 
+	Rid      icon_folder;      /* assets/folder.svg, R_INVALID_ID if missing */
+	Rid      icon_folder_open; /* assets/folder_open.svg                     */
+
 	int      selected_row; /* -1 = none                                 */
 	int      hot_row;      /* hovered row, -1 = none                    */
 } PEState;
@@ -92,6 +102,60 @@ typedef struct {
 /* ---------------------------------------------------------------------------
  * Small helpers
  * --------------------------------------------------------------------------- */
+/*
+ * Asset lookup.
+ *
+ * Raven loads textures from paths relative to the process working directory.
+ * C-AIR is usually launched from the repository root, but double-clicking
+ * build/bin/cair.exe (or running the CTest binaries from build/) puts the
+ * working directory somewhere else.  Try the three layouts the project uses:
+ *
+ *   assets/...        cwd = repository root
+ *   ../assets/...     cwd = build/
+ *   ../../assets/...  cwd = build/bin/
+ *
+ * The first path that exists wins; fopen keeps a miss quiet instead of making
+ * Raven log an error for every candidate.
+ */
+static int pe_find_asset(const char *name, char *out, size_t out_size)
+{
+	static const char *const prefixes[] = { "", "../", "../../" };
+	size_t i;
+
+	if (!name || !out || out_size == 0) return 0;
+	for (i = 0; i < sizeof(prefixes) / sizeof(prefixes[0]); ++i) {
+		FILE *file;
+		int written = snprintf(out, out_size, "%sassets/%s",
+			prefixes[i], name);
+		if (written < 0 || (size_t)written >= out_size) continue;
+		file = fopen(out, "rb");
+		if (file) {
+			fclose(file);
+			return 1;
+		}
+	}
+	out[0] = '\0';
+	return 0;
+}
+
+static Rid pe_load_icon(const char *name)
+{
+	char path[512];
+	if (!pe_find_asset(name, path, sizeof(path))) return R_INVALID_ID;
+	return Rtexture_create_from_file(path);
+}
+
+static void pe_release_icons(PEState *state)
+{
+	if (!state) return;
+	if (Rtexture_is_valid(state->icon_folder))
+		Rtexture_destroy(state->icon_folder);
+	if (Rtexture_is_valid(state->icon_folder_open))
+		Rtexture_destroy(state->icon_folder_open);
+	state->icon_folder      = R_INVALID_ID;
+	state->icon_folder_open = R_INVALID_ID;
+}
+
 static char *pe_strdup(const char *text)
 {
 	size_t length;
@@ -286,14 +350,14 @@ static float pe_column_x(int depth)
 	return PE_LEFT_PAD + (float)depth * PE_INDENT;
 }
 
-static float pe_chevron_cx(int depth)
+static float pe_icon_cx(int depth)
 {
 	return pe_column_x(depth) + PE_INDENT * 0.5f;
 }
 
 static float pe_guide_left(int depth)
 {
-	return pe_chevron_cx(depth) - PE_GUIDE_W * 0.5f;
+	return pe_icon_cx(depth) - PE_GUIDE_W * 0.5f;
 }
 
 static int pe_row_at(const PEState *state, float y)
@@ -386,28 +450,40 @@ static void pe_paint(Rid widget, RPainter *painter,
 				hr, hg, hb, ha * 0.75f);
 		}
 
-		/* ---- chevron ---------------------------------------------------- */
-		if (node->is_directory && node->child_count > 0) {
-			float cx = pe_chevron_cx(row->depth);
-			float hs = PE_CHEVRON_HALF;
-			int expanded = pe_is_expanded(state, node->path);
+		/* ---- folder icon, or chevron fallback when assets are missing ---- */
+		if (node->is_directory) {
+			float cx = pe_icon_cx(row->depth);
+			int expanded = node->child_count > 0
+				&& pe_is_expanded(state, node->path);
+			Rid icon = expanded ? state->icon_folder_open
+				: state->icon_folder;
 
-			if (expanded) {
-				/* "v": the branch is open */
-				Rdraw_line(painter, cx - hs, row_mid - hs * 0.5f,
-					cx, row_mid + hs * 0.5f, 1.4f,
-					dr, dg, db, da);
-				Rdraw_line(painter, cx, row_mid + hs * 0.5f,
-					cx + hs, row_mid - hs * 0.5f, 1.4f,
-					dr, dg, db, da);
-			} else {
-				/* ">": the branch is closed */
-				Rdraw_line(painter, cx - hs * 0.5f, row_mid - hs,
-					cx + hs * 0.5f, row_mid, 1.4f,
-					dr, dg, db, da);
-				Rdraw_line(painter, cx + hs * 0.5f, row_mid,
-					cx - hs * 0.5f, row_mid + hs, 1.4f,
-					dr, dg, db, da);
+			if (icon != R_INVALID_ID) {
+				Rdraw_image(painter, icon,
+					cx - PE_ICON_SIZE * 0.5f,
+					row_mid - PE_ICON_SIZE * 0.5f,
+					PE_ICON_SIZE, PE_ICON_SIZE,
+					1.0f, 1.0f, 1.0f, 1.0f);
+			} else if (node->child_count > 0) {
+				float hs = PE_CHEVRON_HALF;
+
+				if (expanded) {
+					/* "v": the branch is open */
+					Rdraw_line(painter, cx - hs, row_mid - hs * 0.5f,
+						cx, row_mid + hs * 0.5f, 1.4f,
+						dr, dg, db, da);
+					Rdraw_line(painter, cx, row_mid + hs * 0.5f,
+						cx + hs, row_mid - hs * 0.5f, 1.4f,
+						dr, dg, db, da);
+				} else {
+					/* ">": the branch is closed */
+					Rdraw_line(painter, cx - hs * 0.5f, row_mid - hs,
+						cx + hs * 0.5f, row_mid, 1.4f,
+						dr, dg, db, da);
+					Rdraw_line(painter, cx + hs * 0.5f, row_mid,
+						cx - hs * 0.5f, row_mid + hs, 1.4f,
+						dr, dg, db, da);
+				}
 			}
 		}
 
@@ -464,7 +540,7 @@ static int pe_event(Rid widget, const REvent *event, void *ud)
 			int row;
 			const CairProjectNode *node;
 			float cell_left, cell_right;
-			int on_chevron;
+			int on_icon;
 
 			if (event->button != R_MOUSE_LEFT) return R_FALSE;
 
@@ -474,13 +550,13 @@ static int pe_event(Rid widget, const REvent *event, void *ud)
 			node = state->rows[row].node;
 			cell_left  = pe_column_x(state->rows[row].depth);
 			cell_right = cell_left + PE_INDENT;
-			on_chevron = event->local_x >= cell_left
+			on_icon = event->local_x >= cell_left
 				&& event->local_x < cell_right;
 
 			state->selected_row = row;
 
 			if (node->is_directory && node->child_count > 0
-				&& (on_chevron || event->clicks == 2)) {
+				&& (on_icon || event->clicks == 2)) {
 				pe_toggle_directory(state, row);
 			} else if (!node->is_directory
 				&& state->explorer->on_open_file) {
@@ -521,6 +597,8 @@ Rid cair_project_explorer_create(CairProjectExplorer *explorer,
 	state->explorer     = explorer;
 	state->selected_row = -1;
 	state->hot_row      = -1;
+	state->icon_folder      = pe_load_icon(PE_ICON_FOLDER);
+	state->icon_folder_open = pe_load_icon(PE_ICON_FOLDER_OPEN);
 	explorer->_state    = state;
 
 	/* ---- outer VBOX ------------------------------------------------------ */
@@ -558,6 +636,7 @@ Rid cair_project_explorer_create(CairProjectExplorer *explorer,
 	return explorer->root;
 
 fail:
+	pe_release_icons(state);
 	free(state->rows);
 	free(state->guides);
 	free(state);
@@ -622,6 +701,16 @@ int cair_project_explorer_get_guide(const CairProjectExplorer *explorer,
 	return 1;
 }
 
+int cair_project_explorer_has_icons(const CairProjectExplorer *explorer)
+{
+	const PEState *state;
+	if (!explorer) return 0;
+	state = (const PEState *)explorer->_state;
+	if (!state) return 0;
+	return state->icon_folder != R_INVALID_ID
+		&& state->icon_folder_open != R_INVALID_ID;
+}
+
 void cair_project_explorer_destroy(CairProjectExplorer *explorer)
 {
 	PEState *state;
@@ -630,6 +719,7 @@ void cair_project_explorer_destroy(CairProjectExplorer *explorer)
 	state = (PEState *)explorer->_state;
 	if (!state) return;
 
+	pe_release_icons(state);
 	for (i = 0; i < state->expanded_count; ++i) free(state->expanded[i]);
 	free(state->expanded);
 	free(state->rows);

@@ -16,6 +16,11 @@
  *   children.  There are no horizontal branch ticks; this is exactly the
  *   geometry of Zed's compute_indent_guides() (see project_explorer.c).
  *
+ *   Directories show the folder icons from assets/: folder.svg while
+ *   collapsed and folder_open.svg while expanded.  If those files cannot be
+ *   found (for example a stripped deployment), the explorer falls back to the
+ *   previous painted chevrons so the panel stays usable.
+ *
  * Layout
  * ------
  *   root (VBOX, min-width 210)
@@ -25,7 +30,8 @@
  *
  * Interaction
  * -----------
- *   - Click the chevron (or double-click a directory row) to expand/collapse.
+ *   - Click the folder icon (or double-click a directory row) to
+ *     expand/collapse.
  *   - Single-click a file row to open it (on_open_file).
  *   - Directories start collapsed, matching the previous tree view.
  * --------------------------------------------------------------------------- */
@@ -85,9 +91,17 @@ int cair_project_explorer_get_guide(const CairProjectExplorer *explorer,
 	int index, int *depth, int *start_row, int *end_row);
 
 /*
+ * Returns 1 when both folder icon textures were loaded from assets/, 0 when
+ * the explorer is painting the fallback chevrons instead.  Useful for
+ * diagnostics and tests.
+ */
+int cair_project_explorer_has_icons(const CairProjectExplorer *explorer);
+
+/*
  * Frees the explorer's private state.  Call after the Raven UI has been shut
  * down (or at least after the explorer widgets are gone); the function does
- * not destroy any Raven widget itself.
+ * not destroy any Raven widget itself.  Icon textures are released while
+ * Raven is still initialized; after Rshutdown Raven has already freed them.
  */
 void cair_project_explorer_destroy(CairProjectExplorer *explorer);
 
