@@ -23,6 +23,7 @@ find_package(ghostty-vt CONFIG REQUIRED)
 add_library(cair_ui STATIC
 	src/app.c
 	src/model/project_tree.c
+	src/model/terminal_model.c
 	src/widgets/project_explorer.c
 	src/widgets/breadcrumb_bar.c
 	src/widgets/editor_pane.c
@@ -62,6 +63,12 @@ if(BUILD_TESTING)
 	target_include_directories(cair_search_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 	cair_enable_warnings(cair_search_tests)
 	add_test(NAME unit_find_replace COMMAND cair_search_tests)
+
+	add_executable(cair_terminal_model_tests tests/test_terminal_model.c src/model/terminal_model.c)
+	target_include_directories(cair_terminal_model_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+	target_link_libraries(cair_terminal_model_tests PRIVATE ghostty-vt::ghostty-vt-static)
+	cair_enable_warnings(cair_terminal_model_tests)
+	add_test(NAME unit_terminal_model COMMAND cair_terminal_model_tests)
 
 	add_executable(cair_widget_tests tests/test_widgets.c)
 	target_link_libraries(cair_widget_tests PRIVATE cair_ui)
