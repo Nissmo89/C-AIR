@@ -17,6 +17,9 @@ endif()
 
 find_package(raven CONFIG REQUIRED)
 
+list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/third_party/ghostty-vt")
+find_package(ghostty-vt CONFIG REQUIRED)
+
 add_library(cair_ui STATIC
 	src/app.c
 	src/model/project_tree.c
@@ -30,7 +33,7 @@ add_library(cair_ui STATIC
 	src/search/find_replace.c
 )
 target_include_directories(cair_ui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
-target_link_libraries(cair_ui PUBLIC raven::raven uuid)
+target_link_libraries(cair_ui PUBLIC raven::raven uuid ghostty-vt::ghostty-vt-static)
 
 add_executable(cair WIN32 main.c)
 target_link_libraries(cair PRIVATE cair_ui)

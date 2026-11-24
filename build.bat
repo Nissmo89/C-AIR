@@ -16,7 +16,7 @@ if not exist "%RAVEN_SOURCE_DIR%\CMakeLists.txt" (
 for /f %%I in ('powershell -NoProfile -Command "Get-Date -Format yyyyMMdd-HHmmss-fff"') do set "CAIR_OUTPUT_NAME=cair-%%I"
 if not defined CAIR_OUTPUT_NAME exit /b 1
 
-powershell -NoProfile -Command "if (Test-Path -LiteralPath '.\build') { Remove-Item -Path '.\build\' -Recurse -Force -ErrorAction Stop }"
+powershell -NoProfile -Command "if (Test-Path -LiteralPath '.\build') { Get-ChildItem -Path '.\build' -Exclude 'raven-install' | ForEach-Object { try { Remove-Item -LiteralPath $_.FullName -Recurse -Force -ErrorAction Stop } catch {} } }"
 if errorlevel 1 (
 	echo Could not remove .\build\. Close any running C-AIR editor and retry.
 	exit /b 1
