@@ -85,6 +85,11 @@ if(BUILD_TESTING)
 	cair_enable_warnings(cair_terminal_widget_input_tests)
 	add_test(NAME integration_terminal_widget_input COMMAND cair_terminal_widget_input_tests)
 
+	add_executable(cair_terminal_widget_render_tests tests/test_terminal_widget_render.c)
+	target_link_libraries(cair_terminal_widget_render_tests PRIVATE cair_ui)
+	cair_enable_warnings(cair_terminal_widget_render_tests)
+	add_test(NAME integration_terminal_widget_render COMMAND cair_terminal_widget_render_tests)
+
 	add_executable(cair_smoke main.c)
 	target_link_libraries(cair_smoke PRIVATE cair_ui)
 	cair_enable_warnings(cair_smoke)

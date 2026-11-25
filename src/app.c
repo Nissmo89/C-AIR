@@ -197,7 +197,10 @@ int cair_app_run(int self_test) {
 	if (!create_window()) {
 		result = 1;
 	} else if (!self_test) {
-		while (Rdraw_frame()) {}
+		while (Rdraw_frame()) {
+			/* Advance cursor/SGR blink on the UI thread; no worker timer. */
+			cair_terminal_panel_tick(&app.terminal);
+		}
 	}
 	cair_terminal_panel_stop(&app.terminal);
 	Rshutdown();

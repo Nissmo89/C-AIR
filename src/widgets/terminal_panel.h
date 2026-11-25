@@ -3,6 +3,8 @@
 
 #include <Raven.h>
 #include <windows.h>
+#include <stddef.h>
+#include <stdint.h>
 #include "model/terminal_process.h"
 #include "model/terminal_model.h"
 
@@ -17,6 +19,9 @@ typedef struct CairTerminalPanel {
 	CairTerminalProcess process;
 	CairTerminalModel   model;
 	Rid font;
+	Rid font_bold;
+	Rid font_italic;
+	Rid font_bold_italic;
 	CRITICAL_SECTION    output_lock;
 	char               *output_queue;
 	size_t              output_length;
@@ -26,6 +31,27 @@ typedef struct CairTerminalPanel {
 	uint16_t            input_columns;
 	float               last_width;
 	float               last_height;
+
+	/* Persistent renderer storage. The inline grapheme buffer covers the
+	   common case; grapheme_overflow grows only for larger clusters. */
+	char               *run_buffer;
+	size_t              run_capacity;
+	char                grapheme_inline[256];
+	char               *grapheme_overflow;
+	size_t              grapheme_overflow_capacity;
+
+	/* Logical font/cell metrics shared by painting and terminal resizing. */
+	float               font_size;
+	float               cell_width;
+	float               cell_height;
+	float               text_offset_y;
+	uint64_t            last_blink_tick;
+	int                 blink_visible;
+	int                 has_blink_cells;
+
+	/* Diagnostics for the renderer test: number of paint callbacks run. */
+	uint64_t            paint_count;
+
 	int                 output_task_posted;
 	int                 initialized;
 	int                 lock_initialized;
@@ -61,6 +87,13 @@ void cair_terminal_panel_stop(CairTerminalPanel *panel);
  * Release all resources. Called at app shutdown.
  */
 void cair_terminal_panel_destroy(CairTerminalPanel *panel);
+
+/**
+ * Optional UI-loop tick. Call it from the frame loop to advance the cursor and
+ * SGR blink phase. It never creates a worker thread: it only invalidates the
+ * canvas when a blink phase change is due.
+ */
+void cair_terminal_panel_tick(CairTerminalPanel *panel);
 
 #ifdef __cplusplus
 }
