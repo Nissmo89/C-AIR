@@ -44,6 +44,10 @@ typedef struct CairTerminalPanel {
 	float               cell_width;
 	float               cell_height;
 	float               text_offset_y;
+	float               background_r;
+	float               background_g;
+	float               background_b;
+	float               background_a;
 	uint64_t            last_blink_tick;
 	int                 blink_visible;
 	int                 has_blink_cells;
@@ -62,6 +66,10 @@ typedef struct CairTerminalPanel {
  * Does NOT start the shell process yet — call cair_terminal_panel_show() for that.
  */
 Rid cair_terminal_panel_create(CairTerminalPanel *panel);
+
+/* Set the terminal surface color in normalized RGBA channels. */
+void cair_terminal_panel_set_background_color(CairTerminalPanel *panel,
+	float r, float g, float b, float a);
 
 /**
  * Start the shell and make the panel visible.

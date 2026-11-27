@@ -538,6 +538,12 @@ static void render_terminal_grid(CairTerminalPanel *panel, RPainter *painter,
 					bg = color_from_ghostty(ghostty_bg);
 					has_bg = 1;
 				}
+				if (!(flags & GHOSTTY_STYLE_FLAG_INVERSE) && has_bg &&
+				    color_equal(bg, default_bg)) {
+					bg.r = (uint8_t)(panel->background_r * 255.0f + 0.5f);
+					bg.g = (uint8_t)(panel->background_g * 255.0f + 0.5f);
+					bg.b = (uint8_t)(panel->background_b * 255.0f + 0.5f);
+				}
 				(void)ghostty_render_state_row_cells_get(row_cells,
 					GHOSTTY_RENDER_STATE_ROW_CELLS_DATA_SELECTED, &selected);
 
@@ -809,7 +815,8 @@ static void on_paint(Rid widget, RPainter *painter, float width,
 
 	if (!panel->initialized) {
 		Rdraw_rect(painter, 0.0f, 0.0f, width, height, 0.0f,
-		           TERM_BG_R, TERM_BG_G, TERM_BG_B, 1.0f);
+		           panel->background_r, panel->background_g,
+		           panel->background_b, panel->background_a);
 		Rdraw_text(painter, panel->font, panel->font_size,
 		           8.0f, height * 0.5f - panel->cell_height * 0.5f,
 		           "Terminal — press Ctrl+` to open",
@@ -959,6 +966,10 @@ Rid cair_terminal_panel_create(CairTerminalPanel *panel) {
 	panel->font_bold_italic = R_INVALID_ID;
 	panel->blink_visible = 1;
 	panel->last_blink_tick = GetTickCount64();
+	panel->background_r = TERM_BG_R;
+	panel->background_g = TERM_BG_G;
+	panel->background_b = TERM_BG_B;
+	panel->background_a = 1.0f;
 
 	update_font_metrics(panel);
 	if (panel->font != R_INVALID_ID) {
@@ -1005,6 +1016,22 @@ fail:
 		panel->lock_initialized = 0;
 	}
 	return R_INVALID_ID;
+}
+
+void cair_terminal_panel_set_background_color(CairTerminalPanel *panel,
+	float r, float g, float b, float a) {
+	if (!panel || !(r >= 0.0f && r <= 1.0f) ||
+	    !(g >= 0.0f && g <= 1.0f) || !(b >= 0.0f && b <= 1.0f) ||
+	    !(a >= 0.0f && a <= 1.0f)) return;
+	panel->background_r = r;
+	panel->background_g = g;
+	panel->background_b = b;
+	panel->background_a = a;
+	if (panel->root != R_INVALID_ID) {
+		Rwidget_set_color(panel->root, R_COLOR_PANEL, r, g, b, a);
+		Rwidget_set_material(panel->root, R_MATERIAL_SOLID);
+	}
+	if (panel->canvas != R_INVALID_ID) Rwidget_invalidate(panel->canvas);
 }
 
 void cair_terminal_panel_show(CairTerminalPanel *panel) {

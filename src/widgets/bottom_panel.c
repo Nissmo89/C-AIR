@@ -20,6 +20,7 @@ static void tab_changed(Rid tab_view, int index, void *user_data) {
 
 Rid cair_bottom_panel_create(CairBottomPanel *panel, CairTerminalPanel *terminal) {
 	Rid top_border;
+	float background_r, background_g, background_b, background_a;
 
 	if (!panel || !terminal || terminal->root == R_INVALID_ID) return R_INVALID_ID;
 	memset(panel, 0, sizeof(*panel));
@@ -49,6 +50,13 @@ Rid cair_bottom_panel_create(CairBottomPanel *panel, CairTerminalPanel *terminal
 	/* Match the editor's Zed-style document tabs, without closable pages. */
 	Rtab_view_set_documents(panel->tabs, R_TRUE);
 	Rwidget_set_metric(panel->tabs, R_METRIC_CONTROL_HEIGHT, 28.0f);
+	Rwidget_get_color(panel->tabs, R_COLOR_TAB_ACTIVE,
+	                  &background_r, &background_g, &background_b, &background_a);
+	Rwidget_set_color(panel->output_view, R_COLOR_PANEL,
+	                  background_r, background_g, background_b, background_a);
+	Rwidget_set_material(panel->output_view, R_MATERIAL_SOLID);
+	cair_terminal_panel_set_background_color(terminal,
+	    background_r, background_g, background_b, background_a);
 	if (Rtab_view_add_tab(panel->tabs, "Output", panel->output_view) < 0 ||
 	    Rtab_view_add_tab(panel->tabs, "Terminal", terminal->root) < 0) goto fail;
 	Rtab_view_set_tab_closable(panel->tabs, panel->output_view, R_FALSE);
