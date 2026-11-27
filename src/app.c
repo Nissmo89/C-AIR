@@ -153,6 +153,7 @@ static int create_window(void) {
 	/* Right pane: vertical splitter (editor top / terminal bottom) */
 	Rsplitter_set_orientation(v_splitter, R_VERTICAL);
 	Rsplitter_set_min_pane_size(v_splitter, 60.0f);
+	Rwidget_set_metric(v_splitter, R_METRIC_SPLITTER_SIZE, 2.0f);
 	Rslot_set_fill(v_splitter, 3.0f);
 	Rwidget_add_child(h_splitter, v_splitter);
 
