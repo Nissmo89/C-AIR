@@ -2,21 +2,23 @@
 
 #include <string.h>
 
-static void output_clicked(Rid button, void *user_data) {
-	(void)button;
-	cair_bottom_panel_select((CairBottomPanel *)user_data, CAIR_BOTTOM_PANEL_OUTPUT);
+static void apply_tab(CairBottomPanel *panel, int index) {
+	if (!panel || !panel->terminal) return;
+	if (index == CAIR_BOTTOM_PANEL_TERMINAL) {
+		panel->active_tab = CAIR_BOTTOM_PANEL_TERMINAL;
+		cair_terminal_panel_show(panel->terminal);
+	} else {
+		panel->active_tab = CAIR_BOTTOM_PANEL_OUTPUT;
+		cair_terminal_panel_hide(panel->terminal);
+	}
 }
 
-static void terminal_clicked(Rid button, void *user_data) {
-	(void)button;
-	cair_bottom_panel_select((CairBottomPanel *)user_data, CAIR_BOTTOM_PANEL_TERMINAL);
+static void tab_changed(Rid tab_view, int index, void *user_data) {
+	(void)tab_view;
+	apply_tab((CairBottomPanel *)user_data, index);
 }
 
 Rid cair_bottom_panel_create(CairBottomPanel *panel, CairTerminalPanel *terminal) {
-	Rid header;
-	Rid output_button;
-	Rid terminal_button;
-
 	if (!panel || !terminal || terminal->root == R_INVALID_ID) return R_INVALID_ID;
 	memset(panel, 0, sizeof(*panel));
 	panel->root = R_INVALID_ID;
@@ -26,54 +28,49 @@ Rid cair_bottom_panel_create(CairBottomPanel *panel, CairTerminalPanel *terminal
 	panel->terminal = terminal;
 
 	panel->root = Rwidget_create(R_WIDGET_VBOX);
-	if (panel->root == R_INVALID_ID) return R_INVALID_ID;
+	panel->tabs = Rwidget_create(R_WIDGET_TAB_VIEW);
+	panel->output_view = Rwidget_create(R_WIDGET_VBOX);
+	if (panel->root == R_INVALID_ID || panel->tabs == R_INVALID_ID ||
+	    panel->output_view == R_INVALID_ID) goto fail;
 	Rpanel_set_spacing(panel->root, 0.0f);
 
-	header = Rwidget_create(R_WIDGET_HBOX);
-	if (header == R_INVALID_ID) goto fail;
-	Rpanel_set_spacing(header, 4.0f);
-	Rslot_set_padding(header, 6.0f, 3.0f, 6.0f, 3.0f);
-	Rwidget_set_min_size(header, 0.0f, 30.0f);
-	output_button = Rbutton_create("Output");
-	terminal_button = Rbutton_create("Terminal");
-	if (output_button == R_INVALID_ID || terminal_button == R_INVALID_ID) goto fail;
-	Rbutton_set_clicked_callback(output_button, output_clicked, panel);
-	Rbutton_set_clicked_callback(terminal_button, terminal_clicked, panel);
-	Rwidget_add_child(header, output_button);
-	Rwidget_add_child(header, terminal_button);
-	Rwidget_add_child(panel->root, header);
-
-	panel->output_view = Rwidget_create(R_WIDGET_VBOX);
-	if (panel->output_view == R_INVALID_ID) goto fail;
 	panel->output_label = Rlabel_create("No output yet.");
 	if (panel->output_label == R_INVALID_ID) goto fail;
 	Rwidget_add_child(panel->output_view, panel->output_label);
-	Rslot_set_fill(panel->output_view, 1.0f);
-	Rwidget_add_child(panel->root, panel->output_view);
 
-	/* The terminal retains its own lifecycle and is shown when its tab is selected. */
-	Rwidget_add_child(panel->root, terminal->root);
+	/* Match the editor's Zed-style document tabs, without closable pages. */
+	Rtab_view_set_documents(panel->tabs, R_TRUE);
+	Rwidget_set_metric(panel->tabs, R_METRIC_CONTROL_HEIGHT, 28.0f);
+	if (Rtab_view_add_tab(panel->tabs, "Output", panel->output_view) < 0 ||
+	    Rtab_view_add_tab(panel->tabs, "Terminal", terminal->root) < 0) goto fail;
+	Rtab_view_set_tab_closable(panel->tabs, panel->output_view, R_FALSE);
+	Rtab_view_set_tab_closable(panel->tabs, terminal->root, R_FALSE);
+	Rtab_view_set_changed_callback(panel->tabs, tab_changed, panel);
+	Rslot_set_fill(panel->tabs, 1.0f);
+	Rwidget_add_child(panel->root, panel->tabs);
+
 	panel->active_tab = CAIR_BOTTOM_PANEL_OUTPUT;
+	Rtab_view_set_active(panel->tabs, CAIR_BOTTOM_PANEL_OUTPUT);
 	Rwidget_set_visibility(panel->root, R_COLLAPSED);
 	return panel->root;
 
 fail:
-	Rwidget_destroy(panel->root);
+	if (panel->root != R_INVALID_ID) Rwidget_destroy(panel->root);
+	else {
+		if (panel->tabs != R_INVALID_ID) Rwidget_destroy(panel->tabs);
+		if (panel->output_view != R_INVALID_ID) Rwidget_destroy(panel->output_view);
+	}
 	panel->root = R_INVALID_ID;
+	panel->tabs = R_INVALID_ID;
+	panel->output_view = R_INVALID_ID;
 	return R_INVALID_ID;
 }
 
 void cair_bottom_panel_select(CairBottomPanel *panel, CairBottomPanelTab tab) {
-	if (!panel || panel->root == R_INVALID_ID || !panel->terminal) return;
+	if (!panel || panel->root == R_INVALID_ID || panel->tabs == R_INVALID_ID) return;
 	if (tab != CAIR_BOTTOM_PANEL_OUTPUT && tab != CAIR_BOTTOM_PANEL_TERMINAL) return;
-	panel->active_tab = tab;
-	if (tab == CAIR_BOTTOM_PANEL_OUTPUT) {
-		Rwidget_set_visibility(panel->output_view, R_VISIBLE);
-		cair_terminal_panel_hide(panel->terminal);
-	} else {
-		Rwidget_set_visibility(panel->output_view, R_COLLAPSED);
-		cair_terminal_panel_show(panel->terminal);
-	}
+	Rtab_view_set_active(panel->tabs, (int)tab);
+	apply_tab(panel, (int)tab);
 }
 
 void cair_bottom_panel_show(CairBottomPanel *panel) {
