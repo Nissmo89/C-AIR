@@ -26,7 +26,7 @@ int main(void) {
 	int i;
 
 	memset(&panel, 0, sizeof(panel));
-	panel.root = panel.header = panel.canvas = R_INVALID_ID;
+	panel.root = panel.canvas = R_INVALID_ID;
 	if (!Rinit(R_BACKEND_NULL)) return 1;
 	window = Rwindow_create("Terminal input test", 640, 360, 0);
 	root = Rwidget_create(R_WIDGET_VBOX);

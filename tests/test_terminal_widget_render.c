@@ -100,7 +100,7 @@ int main(void) {
 	int frame;
 
 	memset(&panel, 0, sizeof(panel));
-	panel.root = panel.header = panel.canvas = R_INVALID_ID;
+	panel.root = panel.canvas = R_INVALID_ID;
 
 	if (!Rinit(R_BACKEND_NULL)) return 1;
 	window = Rwindow_create("Terminal renderer smoke test", 800, 480, 0);
