@@ -15,6 +15,10 @@ Rid cair_editor_pane_create(CairEditorPane* pane) {
 	pane->editor = Rwidget_add_child(pane->root, Rtext_editor_create(NULL));
 	if (pane->editor == R_INVALID_ID) return R_INVALID_ID;
 	Rslot_set_fill(pane->editor, 1.0f);
+	/* Keep editor focus and frame borders invisible; focus still moves normally. */
+	Rwidget_set_metric(pane->editor, R_METRIC_BORDER_WIDTH, 0.0f);
+	Rwidget_set_color(pane->editor, R_COLOR_BORDER, 0.0f, 0.0f, 0.0f, 0.0f);
+	Rwidget_set_color(pane->editor, R_COLOR_FOCUS, 0.0f, 0.0f, 0.0f, 0.0f);
 	Rtext_editor_set_language(pane->editor, "C");
 	Rtext_editor_set_line_numbers(pane->editor, R_TRUE);
 	Rtext_editor_set_tab_size(pane->editor, 4);
