@@ -19,6 +19,8 @@ static void tab_changed(Rid tab_view, int index, void *user_data) {
 }
 
 Rid cair_bottom_panel_create(CairBottomPanel *panel, CairTerminalPanel *terminal) {
+	Rid top_border;
+
 	if (!panel || !terminal || terminal->root == R_INVALID_ID) return R_INVALID_ID;
 	memset(panel, 0, sizeof(*panel));
 	panel->root = R_INVALID_ID;
@@ -28,11 +30,17 @@ Rid cair_bottom_panel_create(CairBottomPanel *panel, CairTerminalPanel *terminal
 	panel->terminal = terminal;
 
 	panel->root = Rwidget_create(R_WIDGET_VBOX);
+	if (panel->root == R_INVALID_ID) goto fail;
+	Rpanel_set_spacing(panel->root, 0.0f);
+
+	top_border = Rwidget_create(R_WIDGET_SEPARATOR);
+	if (top_border == R_INVALID_ID) goto fail;
+	Rseparator_set_orientation(top_border, R_HORIZONTAL);
+	Rwidget_add_child(panel->root, top_border);
+
 	panel->tabs = Rwidget_create(R_WIDGET_TAB_VIEW);
 	panel->output_view = Rwidget_create(R_WIDGET_VBOX);
-	if (panel->root == R_INVALID_ID || panel->tabs == R_INVALID_ID ||
-	    panel->output_view == R_INVALID_ID) goto fail;
-	Rpanel_set_spacing(panel->root, 0.0f);
+	if (panel->tabs == R_INVALID_ID || panel->output_view == R_INVALID_ID) goto fail;
 
 	panel->output_label = Rlabel_create("No output yet.");
 	if (panel->output_label == R_INVALID_ID) goto fail;
