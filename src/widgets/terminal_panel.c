@@ -14,7 +14,6 @@
  * -------------------------------------------------------------------------- */
 #define TERM_COLS              80u
 #define TERM_ROWS              24u
-#define HEADER_H               28.0f
 #define DEFAULT_FONT_SIZE      14.0f
 #define RUN_BUFFER_INITIAL     4096u
 #define SELECTION_R            0.25f
@@ -946,22 +945,13 @@ static int on_key(Rid widget, const REvent *event, void *user_data) {
 	return R_FALSE;
 }
 
-static void close_clicked(Rid button, void *user_data) {
-	(void)button;
-	cair_terminal_panel_hide((CairTerminalPanel *)user_data);
-}
-
 /* --------------------------------------------------------------------------
  * Public panel API
  * -------------------------------------------------------------------------- */
 Rid cair_terminal_panel_create(CairTerminalPanel *panel) {
-	Rid title_label;
-	Rid close_button;
-
 	if (!panel) return R_INVALID_ID;
 	memset(panel, 0, sizeof(*panel));
 	panel->root = R_INVALID_ID;
-	panel->header = R_INVALID_ID;
 	panel->canvas = R_INVALID_ID;
 	panel->font = Rfont_get_monospace();
 	panel->font_bold = R_INVALID_ID;
@@ -986,26 +976,6 @@ Rid cair_terminal_panel_create(CairTerminalPanel *panel) {
 	Rpanel_set_spacing(panel->root, 0.0f);
 	Rwidget_set_theme(panel->root, "Dark");
 
-	panel->header = Rwidget_create(R_WIDGET_HBOX);
-	if (panel->header == R_INVALID_ID) goto fail;
-	Rpanel_set_spacing(panel->header, 6.0f);
-	Rslot_set_padding(panel->header, 6.0f, 4.0f, 6.0f, 4.0f);
-	Rwidget_set_min_size(panel->header, 0.0f, HEADER_H);
-
-	title_label = Rlabel_create("Terminal");
-	if (title_label == R_INVALID_ID) goto fail;
-	Rslot_set_fill(title_label, 1.0f);
-	Rwidget_add_child(panel->header, title_label);
-
-	close_button = Rbutton_create("×");
-	if (close_button == R_INVALID_ID) goto fail;
-	Rwidget_set_tooltip(close_button, "Close terminal (Ctrl+`)");
-	Rbutton_set_style(close_button, R_BUTTON_FLAT);
-	Rbutton_set_clicked_callback(close_button, close_clicked, panel);
-	Rwidget_add_child(panel->header, close_button);
-	Rwidget_set_user_handle(close_button, panel);
-	Rwidget_add_child(panel->root, panel->header);
-
 	panel->canvas = Rwidget_create(R_WIDGET_CUSTOM);
 	if (panel->canvas == R_INVALID_ID) goto fail;
 	Rslot_set_fill(panel->canvas, 1.0f);
@@ -1023,7 +993,6 @@ Rid cair_terminal_panel_create(CairTerminalPanel *panel) {
 fail:
 	if (panel->root != R_INVALID_ID) Rwidget_destroy(panel->root);
 	panel->root = R_INVALID_ID;
-	panel->header = R_INVALID_ID;
 	panel->canvas = R_INVALID_ID;
 	free(panel->run_buffer);
 	panel->run_buffer = NULL;
@@ -1140,6 +1109,5 @@ void cair_terminal_panel_destroy(CairTerminalPanel *panel) {
 		panel->lock_initialized = 0;
 	}
 	panel->root = R_INVALID_ID;
-	panel->header = R_INVALID_ID;
 	panel->canvas = R_INVALID_ID;
 }

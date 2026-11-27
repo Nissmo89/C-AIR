@@ -199,7 +199,6 @@ int cair_app_run(int self_test) {
 	app.find_replace.editor = R_INVALID_ID;
 	app.terminal.root   = R_INVALID_ID;
 	app.terminal.canvas = R_INVALID_ID;
-	app.terminal.header = R_INVALID_ID;
 	if (!create_window()) {
 		result = 1;
 	} else if (!self_test) {

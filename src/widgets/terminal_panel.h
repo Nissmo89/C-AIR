@@ -13,8 +13,7 @@ extern "C" {
 #endif
 
 typedef struct CairTerminalPanel {
-	Rid root;           /* outer VBox (title bar + custom canvas) */
-	Rid header;         /* HBox title bar row */
+	Rid root;           /* outer VBox containing the custom terminal canvas */
 	Rid canvas;         /* R_WIDGET_CUSTOM — the VT cell grid */
 	CairTerminalProcess process;
 	CairTerminalModel   model;

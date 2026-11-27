@@ -120,7 +120,6 @@ int main(void) {
 	memset(&status, 0, sizeof(status));
 	memset(&terminal, 0, sizeof(terminal));
 	terminal.root = R_INVALID_ID;
-	terminal.header = R_INVALID_ID;
 	terminal.canvas = R_INVALID_ID;
 	observer.editor = R_INVALID_ID;
 	observer.changes = 0;
