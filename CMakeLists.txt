@@ -33,6 +33,7 @@ add_library(cair_ui STATIC
 	src/widgets/find_replace_bar.c
 	src/widgets/status_bar.c
 	src/widgets/terminal_panel.c
+	src/widgets/bottom_panel.c
 	src/search/find_replace.c
 )
 target_include_directories(cair_ui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)

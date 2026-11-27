@@ -3,6 +3,7 @@
 
 #include "app.h"
 #include "model/project_tree.h"
+#include "widgets/bottom_panel.h"
 #include "widgets/editor_tabs.h"
 #include "widgets/find_replace_bar.h"
 #include "widgets/main_menu.h"
@@ -22,6 +23,7 @@ typedef struct CairApp {
 	CairFindReplaceBar find_replace;
 	CairStatusBar status;
 	CairTerminalPanel terminal;
+	CairBottomPanel bottom_panel;
 	Rid right_splitter;  /* vertical splitter: editor on top, terminal below */
 } CairApp;
 
@@ -92,7 +94,7 @@ static void main_menu_action(CairMainMenuAction action, void* user_data) {
 				? R_COLLAPSED : R_VISIBLE);
 			break;
 		case CAIR_MAIN_MENU_TOGGLE_TERMINAL:
-			cair_terminal_panel_toggle(&state->terminal);
+			cair_bottom_panel_toggle(&state->bottom_panel);
 			break;
 		case CAIR_MAIN_MENU_ABOUT:
 			Rmessage_box(state->window, "About C-AIR", "A lightweight C code editor.", R_MESSAGE_OK);
@@ -112,6 +114,7 @@ static int create_window(void) {
 	Rid editor;
 	Rid find_replace;
 	Rid terminal;
+	Rid bottom_panel;
 	Rid status;
 
 	if (length == 0 || length >= sizeof(root_path)) return 0;
@@ -167,8 +170,10 @@ static int create_window(void) {
 	/* Terminal panel (bottom of vertical splitter, initially collapsed) */
 	terminal = cair_terminal_panel_create(&app.terminal);
 	if (terminal == R_INVALID_ID) return 0;
-	Rslot_set_fill(terminal, 1.0f);
-	Rwidget_add_child(v_splitter, terminal);
+	bottom_panel = cair_bottom_panel_create(&app.bottom_panel, &app.terminal);
+	if (bottom_panel == R_INVALID_ID) return 0;
+	Rslot_set_fill(bottom_panel, 1.0f);
+	Rwidget_add_child(v_splitter, bottom_panel);
 
 	/* Status bar at the very bottom */
 	Rwidget_add_child(outer, status);
@@ -176,7 +181,8 @@ static int create_window(void) {
 	Rwindow_set_content(app.window, outer);
 	/* Open the integrated command prompt with the app so users see a live
 	 * terminal immediately; the View menu can still hide and restore it. */
-	cair_terminal_panel_show(&app.terminal);
+	cair_bottom_panel_select(&app.bottom_panel, CAIR_BOTTOM_PANEL_TERMINAL);
+	cair_bottom_panel_show(&app.bottom_panel);
 	cair_find_replace_bar_register_shortcuts(&app.find_replace, app.window);
 
 	/* Ctrl+` shortcut also handled through the menu item — no extra binding needed */
