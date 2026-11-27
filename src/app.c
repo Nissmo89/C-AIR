@@ -174,15 +174,11 @@ static int create_window(void) {
 	bottom_panel = cair_bottom_panel_create(&app.bottom_panel, &app.terminal);
 	if (bottom_panel == R_INVALID_ID) return 0;
 	{
-		float tab_r, tab_g, tab_b, tab_a;
-		Rwidget_get_color(app.bottom_panel.tabs, R_COLOR_HEADER,
-		                  &tab_r, &tab_g, &tab_b, &tab_a);
-		/* Keep the editor/terminal splitter visually continuous with the tab bar.
-		 * Matching the hover roles removes the bright handle highlight. */
-		Rwidget_set_color(v_splitter, R_COLOR_HANDLE, tab_r, tab_g, tab_b, tab_a);
-		Rwidget_set_color(v_splitter, R_COLOR_HANDLE_HOVERED, tab_r, tab_g, tab_b, tab_a);
-		Rwidget_set_color(v_splitter, R_COLOR_SEPARATOR, tab_r, tab_g, tab_b, tab_a);
-		Rwidget_set_color(v_splitter, R_COLOR_ACCENT, tab_r, tab_g, tab_b, tab_a);
+		/* Keep the splitter draggable, but hide its resting and hover paint. */
+		Rwidget_set_color(v_splitter, R_COLOR_HANDLE, 0.0f, 0.0f, 0.0f, 0.0f);
+		Rwidget_set_color(v_splitter, R_COLOR_HANDLE_HOVERED, 0.0f, 0.0f, 0.0f, 0.0f);
+		Rwidget_set_color(v_splitter, R_COLOR_SEPARATOR, 0.0f, 0.0f, 0.0f, 0.0f);
+		Rwidget_set_color(v_splitter, R_COLOR_ACCENT, 0.0f, 0.0f, 0.0f, 0.0f);
 	}
 	Rslot_set_fill(bottom_panel, 1.0f);
 	Rwidget_add_child(v_splitter, bottom_panel);
